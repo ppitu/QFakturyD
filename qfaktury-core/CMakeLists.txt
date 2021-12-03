@@ -13,7 +13,6 @@ find_package(QT NAMES Qt6 Qt5 COMPONENTS Core REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Sql REQUIRED)
 
-file(GLOB_RECURSE source_class Class/*.cpp Class/*.h)
 file(GLOB_RECURSE source_database Database/*.cpp Database/*.h)
 file(GLOB_RECURSE source_database_class DatabaseClass/*.cpp DatabaseClass/*.h)
 file(GLOB_RECURSE source_exception Exception/*.cpp Exception/*.h)
@@ -22,12 +21,30 @@ file(GLOB_RECURSE source_type_class TypeClass/*.cpp TypeClass/*.h)
 
 add_library(qfaktury-core SHARED
   qfaktury-core_global.h
-  ${source_class}
-  ${source_database}
-  ${source_database_class}
-  ${source_exception}
-  ${source_model}
-  ${source_type_class}
+  Class/Address.cpp Class/Address.h Class/Contractor.cpp Class/Contractor.h
+  Class/Product.cpp Class/Product.h
+  Database/DatabaseManager.cpp Database/DatabaseManager.cpp
+  DatabaseClass/AddressDao.cpp DatabaseClass/AddressDao.h
+  DatabaseClass/ContractorDao.cpp DatabaseClass/ContractorDao.h
+  DatabaseClass/ProductDao.cpp DatabaseClass/ProductDao.h
+  Exception/EmailException.cpp Exception/EmailException.h
+  Exception/NIPException.cpp Exception/NIPException.h
+  Exception/PhoneException.cpp Exception/PhoneException.h
+  Exception/PostCodeException.cpp Exception/PostCodeException.h
+  Model/ProductModel.cpp Model/ProductModel.h
+  TypeClass/City.cpp TypeClass/City.h
+  TypeClass/Country.cpp TypeClass/Country.h
+  TypeClass/County.cpp TypeClass/County.h
+  TypeClass/Email.cpp TypeClass/Email.h
+  TypeClass/FlatNumber.cpp TypeClass/FlatNumber.h
+  TypeClass/HouseNumber.cpp TypeClass/HouseNumber.h
+  TypeClass/Municipality.cpp TypeClass/Municipality.h
+  TypeClass/NIP.cpp TypeClass/NIP.h
+  TypeClass/Phone.cpp TypeClass/Phone.h
+  TypeClass/PostCode.cpp TypeClass/PostCode.h
+  TypeClass/Price.cpp TypeClass/Price.h
+  TypeClass/Province.cpp TypeClass/Province.h
+  TypeClass/Street.cpp TypeClass/Street.h
 )
 
 target_link_libraries(qfaktury-core PRIVATE Qt${QT_VERSION_MAJOR}::Core)
