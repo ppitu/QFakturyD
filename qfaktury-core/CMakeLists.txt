@@ -6,18 +6,12 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Core REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Sql REQUIRED)
-
-file(GLOB_RECURSE source_database Database/*.cpp Database/*.h)
-file(GLOB_RECURSE source_database_class DatabaseClass/*.cpp DatabaseClass/*.h)
-file(GLOB_RECURSE source_exception Exception/*.cpp Exception/*.h)
-file(GLOB_RECURSE source_model Model/*.cpp Model/*.h)
-file(GLOB_RECURSE source_type_class TypeClass/*.cpp TypeClass/*.h)
 
 add_library(qfaktury-core SHARED
   qfaktury-core_global.h
