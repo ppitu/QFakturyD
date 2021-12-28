@@ -15,22 +15,14 @@ class Contractor
 {
 public:
     Contractor();
-    Contractor(const QString &name, const NIP &nip, const Address &address, std::optional<QString> bankAccount, std::optional<Phone> phone, std::optional<Email> email, std::optional<QString> www);
+    Contractor(const QString &name, const NIP &nip, const Address &address, std::optional<QString> bankAccount, std::optional<Phone> phone, std::optional<Email> email);
 
     const QString &getName() const;
-    void setName(const QString &newName);
     const NIP &nip() const;
-    void setNip(const NIP &newNip);
     const Address &getAddress() const;
-    void setAddress(const Address& newAddress);
-    const std::optional<QString>& bankAccount() const;
-    void setBankAccount(std::optional<QString> newBankAccount);
-    const std::optional<Phone>& phone() const;
-    void setPhone(std::optional<Phone> newPhone);
-    const std::optional<Email>& email() const;
-    void setEmail(std::optional<Email> newEmail);
-    const std::optional<QString>& www() const;
-    void setWww(std::optional<QString> newWww);
+    const std::optional<QString>& getBankAccount() const;
+    const std::optional<Phone>& getPhone() const;
+    const std::optional<Email>& getEmail() const;
 
 private:
     QString name_;
@@ -39,7 +31,6 @@ private:
     std::optional<QString> bankAccount_;
     std::optional<Phone> phone_;
     std::optional<Email> email_;
-    std::optional<QString> www_;
 
 };
 
