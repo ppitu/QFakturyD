@@ -1,128 +1,83 @@
 #include "Product.h"
 
 Product::Product() :
-    mLastId(0),
-    mName(""),
-    mCode(""),
-    mPkwiu(""),
-    mDescription(""),
-    mIdent(""),
-    mQuality(""),
-    mMetric(""),
-    mPrice(0, 0)
+    lastId_(0),
+    name_(""),
+    code_(""),
+    pkwiu_(""),
+    description_(""),
+    ident_(""),
+    quality_(""),
+    metric_(""),
+    price_(0, 0)
 {
 
 }
 
-int Product::id() const
+int Product::getId() const
 {
-    return mId;
+    return id_;
 }
 
-void Product::setId(int newId)
+void Product::setId(int id)
 {
-    mId = newId;
+    id_ = id;
 }
 
-int Product::lastId() const
+int Product::getLastId() const
 {
-    return mLastId;
+    return lastId_;
 }
 
-void Product::setLastId(int newLastId)
+const QString &Product::getName() const
 {
-    mLastId = newLastId;
+    return name_;
 }
 
-const QString &Product::name() const
+const QString &Product::getCode() const
 {
-    return mName;
+    return code_;
 }
 
-void Product::setName(const QString &newName)
+const QString &Product::getPkwiu() const
 {
-    mName = newName;
+    return pkwiu_;
 }
 
-const QString &Product::code() const
+const QString &Product::getDescription() const
 {
-    return mCode;
+    return description_;
 }
 
-void Product::setCode(const QString &newCode)
+const QString &Product::getIdent() const
 {
-    mCode = newCode;
+    return ident_;
 }
 
-const QString &Product::pkwiu() const
+const QString &Product::getQuality() const
 {
-    return mPkwiu;
+    return quality_;
 }
 
-void Product::setPkwiu(const QString &newPkwiu)
+const QString &Product::getMetric() const
 {
-    mPkwiu = newPkwiu;
+    return metric_;
 }
 
-const QString &Product::description() const
+const Price &Product::getPrice() const
 {
-    return mDescription;
-}
-
-void Product::setDescription(const QString &newDescription)
-{
-    mDescription = newDescription;
-}
-
-const QString &Product::ident() const
-{
-    return mIdent;
-}
-
-void Product::setIdent(const QString &newIdent)
-{
-    mIdent = newIdent;
-}
-
-const QString &Product::quality() const
-{
-    return mQuality;
-}
-
-void Product::setQuality(const QString &newQuality)
-{
-    mQuality = newQuality;
-}
-
-const QString &Product::metric() const
-{
-    return mMetric;
-}
-
-void Product::setMetric(const QString &newMetric)
-{
-    mMetric = newMetric;
-}
-
-const Price &Product::price() const
-{
-    return mPrice;
-}
-
-void Product::setPrice(const Price &newPrice)
-{
-    mPrice = newPrice;
+    return price_;
 }
 
 Product::Product(int id, int lastId, const QString &ident, const QString &name, const QString &code, const QString &pkwiu, const QString &description, const QString &quality, const QString &metric, const Price& price) :
-    mId(id),
-    mLastId(lastId),
-    mIdent(ident),
-    mName(name),
-    mCode(code),
-    mPkwiu(pkwiu),
-    mDescription(description),
-    mQuality(quality),
-    mMetric(metric),
-    mPrice(price)
+    id_(id),
+    lastId_(lastId),
+    ident_(ident),
+    name_(name),
+    code_(code),
+    pkwiu_(pkwiu),
+    description_(description),
+    quality_(quality),
+    metric_(metric),
+    price_(price)
 {}

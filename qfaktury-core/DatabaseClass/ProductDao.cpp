@@ -29,16 +29,16 @@ void ProductDao::addProduct(Product &product) const
     QSqlQuery query(mDatabase);
     query.prepare("INSERT INTO product (ident, name, code, pkwiu, quality, description, net, gross, vat, metric) VALUES"
                   "(:ident, :name, :code, :pkwiu, :quality, :description, :net, :gross, :vat, :metric)");
-    query.bindValue(":ident", product.ident());
-    query.bindValue(":name", product.name());
-    query.bindValue(":code", product.code());
-    query.bindValue(":pkwiu", product.pkwiu());
-    query.bindValue(":quality", product.quality());
-    query.bindValue(":description", product.description());
-    query.bindValue(":net", product.price().getNet());
-    query.bindValue(":gross", product.price().getGross());
-    query.bindValue(":vat", product.price().getVat());
-    query.bindValue(":metric", product.metric());
+    query.bindValue(":ident", product.getIdent());
+    query.bindValue(":name", product.getName());
+    query.bindValue(":code", product.getCode());
+    query.bindValue(":pkwiu", product.getPkwiu());
+    query.bindValue(":quality", product.getQuality());
+    query.bindValue(":description", product.getDescription());
+    query.bindValue(":net", product.getPrice().getNet());
+    query.bindValue(":gross", product.getPrice().getGross());
+    query.bindValue(":vat", product.getPrice().getVat());
+    query.bindValue(":metric", product.getMetric());
     query.exec();
     product.setId(query.lastInsertId().toInt());
     DatabaseManager::debugQuery(query);
@@ -49,17 +49,17 @@ void ProductDao::updateProduct(const Product &product) const
     QSqlQuery query(mDatabase);
     query.prepare("UPDATE product SET ident = (:ident), name = (:name), code = (:code), pkwiu = (:pkwiu), quality = (:quality),"
                   "description = (:description), net = (:net), gross = (:gross), vat = (:vat), metric = (:metric) WHERE id = (:id)");
-    query.bindValue(":ident", product.ident());
-    query.bindValue(":id", product.id());
-    query.bindValue(":name", product.name());
-    query.bindValue(":code", product.code());
-    query.bindValue(":pkwiu", product.pkwiu());
-    query.bindValue(":quality", product.quality());
-    query.bindValue(":description", product.description());
-    query.bindValue(":net", product.price().getNet());
-    query.bindValue(":gross", product.price().getGross());
-    query.bindValue(":vat", product.price().getVat());
-    query.bindValue(":metric", product.metric());
+    query.bindValue(":ident", product.getIdent());
+    query.bindValue(":id", product.getId());
+    query.bindValue(":name", product.getName());
+    query.bindValue(":code", product.getCode());
+    query.bindValue(":pkwiu", product.getPkwiu());
+    query.bindValue(":quality", product.getQuality());
+    query.bindValue(":description", product.getDescription());
+    query.bindValue(":net", product.getPrice().getNet());
+    query.bindValue(":gross", product.getPrice().getGross());
+    query.bindValue(":vat", product.getPrice().getVat());
+    query.bindValue(":metric", product.getMetric());
     query.exec();
     DatabaseManager::debugQuery(query);
 }
@@ -83,17 +83,14 @@ std::unique_ptr<std::vector<std::unique_ptr<Product> > > ProductDao::products() 
 
     while(query.next())
     {
-        std::unique_ptr<Product> product(new Product());
-        product->setId(query.value("id").toInt());
-        product->setIdent(query.value("ident").toString());
-        product->setName(query.value("name").toString());
-        product->setCode(query.value("code").toString());
-        product->setPkwiu(query.value("pkwiu").toString());
-        product->setQuality(query.value("quality").toString());
-        product->setDescription(query.value("description").toString());
         Price price(query.value("net").toDouble(), query.value("vat").toInt());
-        product->setPrice(price);
-        product->setMetric(query.value("metric").toString());
+
+        std::unique_ptr<Product> product(new Product(query.value("id").toInt(), -1, query.value("ident").toString(),
+                                                     query.value("name").toString(), query.value("code").toString(),
+                                                     query.value("pkwiu").toString(), query.value("description").toString(),
+                                                     query.value("quality").toString(), query.value("metric").toString(),
+                                                     price));
+
         list->push_back(std::move(product));
     }
 

@@ -12,40 +12,32 @@ class Product
 {
 public:
     Product();
-    Product(int id, int lastId, const QString &ident, const QString &name, const QString &code, const QString &pkwiu, const QString &description, const QString &quality, const QString &metric, const Price& price);
+    Product(int id, int lastId, const QString &ident, const QString &name, const QString &code, const QString &pkwiu,
+            const QString &description, const QString &quality, const QString &metric, const Price& price);
 
-    int id() const;
-    void setId(int newId);
-    int lastId() const;
-    void setLastId(int newLastId);
-    const QString &name() const;
-    void setName(const QString &newName);
-    const QString &code() const;
-    void setCode(const QString &newCode);
-    const QString &pkwiu() const;
-    void setPkwiu(const QString &newPkwiu);
-    const QString &description() const;
-    void setDescription(const QString &newDescription);
-    const QString &ident() const;
-    void setIdent(const QString &newIdent);
-    const QString &quality() const;
-    void setQuality(const QString &newQuality);
-    const QString &metric() const;
-    void setMetric(const QString &newMetric);
-    const Price &price() const;
-    void setPrice(const Price &newPrice);
+    int getId() const;
+    void setId(int id);
+    int getLastId() const;
+    const QString &getName() const;
+    const QString &getCode() const;
+    const QString &getPkwiu() const;
+    const QString &getDescription() const;
+    const QString &getIdent() const;
+    const QString &getQuality() const;
+    const QString &getMetric() const;
+    const Price &getPrice() const;
 
 private:
-    int mId;
-    int mLastId;
-    QString mIdent;
-    QString mName;
-    QString mCode;
-    QString mPkwiu;
-    QString mDescription;
-    QString mQuality;
-    QString mMetric;
-    Price mPrice;
+    int id_;
+    int lastId_;
+    QString ident_;
+    QString name_;
+    QString code_;
+    QString pkwiu_;
+    QString description_;
+    QString quality_;
+    QString metric_;
+    Price price_;
 };
 
 Q_DECLARE_METATYPE(Product);

@@ -16,15 +16,15 @@ ProductDialog::ProductDialog(Product& product, QWidget *parent) :
     connect(ui->dsNet, &QDoubleSpinBox::editingFinished, this, &ProductDialog::calculateGross);
     connect(ui->cbVat, &QComboBox::currentIndexChanged, this, &ProductDialog::calculateGross);
 
-    ui->elIdent->setText(mProduct.ident());
-    ui->elName->setText(mProduct.name());
-    ui->elCode->setText(mProduct.code());
-    ui->elDescription->setText(mProduct.description());
-    ui->elMetric->setText(mProduct.metric());
-    ui->elQuality->setText(mProduct.quality());
-    ui->elPKWIU->setText(mProduct.pkwiu());
-    ui->dsNet->setValue(mProduct.price().getNet());
-    ui->dsGross->setValue(mProduct.price().getGross());
+    ui->elIdent->setText(mProduct.getIdent());
+    ui->elName->setText(mProduct.getName());
+    ui->elCode->setText(mProduct.getCode());
+    ui->elDescription->setText(mProduct.getDescription());
+    ui->elMetric->setText(mProduct.getMetric());
+    ui->elQuality->setText(mProduct.getQuality());
+    ui->elPKWIU->setText(mProduct.getPkwiu());
+    ui->dsNet->setValue(mProduct.getPrice().getNet());
+    ui->dsGross->setValue(mProduct.getPrice().getGross());
 }
 
 ProductDialog::~ProductDialog()
@@ -34,15 +34,13 @@ ProductDialog::~ProductDialog()
 
 void ProductDialog::accept()
 {
-    mProduct.setIdent(ui->elIdent->text());
-    mProduct.setName(ui->elName->text());
-    mProduct.setCode(ui->elCode->text());
-    mProduct.setDescription(ui->elDescription->text());
-    mProduct.setPkwiu(ui->elPKWIU->text());
     Price price(ui->dsNet->value(), ui->cbVat->currentText().toInt());
-    mProduct.setPrice(price);
-    mProduct.setMetric(ui->elMetric->text());
-    mProduct.setQuality(ui->elQuality->text());
+    Product product(mProduct.getId(), mProduct.getLastId(), ui->elIdent->text(),
+                    ui->elName->text(), ui->elCode->text(), ui->elPKWIU->text(),
+                    ui->elDescription->text(), ui->elQuality->text(), ui->elMetric->text(),
+                    price);
+
+    mProduct = product;
 
     QDialog::accept();
 }

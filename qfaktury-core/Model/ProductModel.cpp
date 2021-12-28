@@ -46,17 +46,17 @@ QVariant ProductModel::data(const QModelIndex &index, int role) const
         return QVariant::fromValue(product);
     case Qt::DisplayRole:
         switch (index.column()) {
-        case ColumnName::ID: return product.id();
-        case ColumnName::IDENT: return product.ident();
-        case ColumnName::NAME: return product.name();
-        case ColumnName::CODE: return product.code();
-        case ColumnName::PKWIU: return product.pkwiu();
-        case ColumnName::QUALITY: return product.quality();
-        case ColumnName::DESCRIPTION: return product.description();
-        case ColumnName::NET: return product.price().getNet();
-        case ColumnName::GROSS: return product.price().getGross();
-        case ColumnName::VAT: return product.price().getVat();
-        case ColumnName::METRIC: return product.metric();
+        case ColumnName::ID: return product.getId();
+        case ColumnName::IDENT: return product.getIdent();
+        case ColumnName::NAME: return product.getName();
+        case ColumnName::CODE: return product.getCode();
+        case ColumnName::PKWIU: return product.getPkwiu();
+        case ColumnName::QUALITY: return product.getQuality();
+        case ColumnName::DESCRIPTION: return product.getDescription();
+        case ColumnName::NET: return product.getPrice().getNet();
+        case ColumnName::GROSS: return product.getPrice().getGross();
+        case ColumnName::VAT: return product.getPrice().getVat();
+        case ColumnName::METRIC: return product.getMetric();
         }
     default:
         return {};
@@ -71,17 +71,19 @@ bool ProductModel::setData(const QModelIndex &index, const QVariant &value, int 
         return false;
     }
 
-    auto productTemp = qvariant_cast<Product>(value);
+    auto product = qvariant_cast<Product>(value);
 
-    Product& product = *mProducts->at(index.row());
-    product.setIdent(productTemp.ident());
-    product.setName(productTemp.name());
-    product.setCode(productTemp.code());
-    product.setPkwiu(productTemp.pkwiu());
-    product.setQuality(productTemp.quality());
-    product.setDescription(productTemp.description());
-    product.setPrice(productTemp.price());
-    product.setMetric(productTemp.metric());
+    /*Product& product = *mProducts->at(index.row());
+    product.setIdent(productTemp.getIdent());
+    product.setName(productTemp.getName());
+    product.setCode(productTemp.getCode());
+    product.setPkwiu(productTemp.getPkwiu());
+    product.setQuality(productTemp.getQuality());
+    product.setDescription(productTemp.getDescription());
+    product.setPrice(productTemp.getPrice());
+    product.setMetric(productTemp.getMetric());*/
+    *mProducts->at(index.row()) = product;
+
     mDb.mProductDao.updateProduct(product);
     emit dataChanged(index, index);
 
@@ -100,7 +102,7 @@ bool ProductModel::removeRows(int row, int count, const QModelIndex &parent)
 
     while (countLeft--) {
         const Product& product = *mProducts->at(row + countLeft);
-        mDb.mProductDao.removeProduct(product.id());
+        mDb.mProductDao.removeProduct(product.getId());
     }
 
     mProducts->erase(mProducts->begin() + row, mProducts->begin() + row + count);
