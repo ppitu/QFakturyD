@@ -39,6 +39,8 @@ add_library(qfaktury-core SHARED
   TypeClass/Price.cpp TypeClass/Price.h
   TypeClass/Province.cpp TypeClass/Province.h
   TypeClass/Street.cpp TypeClass/Street.h
+  TypeClass/Money.h TypeClass/Money.cpp
+  Exception/MoneyException.h Exception/MoneyException.cpp
 )
 
 target_link_libraries(qfaktury-core PRIVATE Qt${QT_VERSION_MAJOR}::Core)
