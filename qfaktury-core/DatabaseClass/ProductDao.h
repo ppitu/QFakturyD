@@ -8,7 +8,7 @@
 class QSqlDatabase;
 class Product;
 
-class ProductDao
+class ProductDao final
 {
 public:
     explicit ProductDao(QSqlDatabase& database);
@@ -17,7 +17,6 @@ public:
     void updateProduct(const Product& product) const;
     void removeProduct(int id) const;
     std::unique_ptr<std::vector<std::unique_ptr<Product>>> products() const;
-    virtual ~ProductDao();
 
 private:
     QSqlDatabase& mDatabase;

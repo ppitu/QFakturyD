@@ -3,7 +3,7 @@
 
 #include <QString>
 
-class Phone
+class Phone final
 {
 public:
     Phone() = delete;

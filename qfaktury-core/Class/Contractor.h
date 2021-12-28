@@ -11,7 +11,7 @@
 #include "TypeClass/PostCode.h"
 #include "Address.h"
 
-class Contractor
+class Contractor final
 {
 public:
     Contractor();

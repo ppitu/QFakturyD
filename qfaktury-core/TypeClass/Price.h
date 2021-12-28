@@ -4,7 +4,7 @@
 // TODO
 // Dodac obsluge dwoch liczba po przecinku, na razie moze ich byc wiecej
 
-class Price
+class Price final
 {
 public:
     Price(double net, int vat);

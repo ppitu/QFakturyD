@@ -3,7 +3,7 @@
 
 #include <QString>
 
-class Street
+class Street final
 {
 public:
     Street();

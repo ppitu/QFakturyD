@@ -3,7 +3,7 @@
 
 #include <QString>
 
-class Country
+class Country final
 {
 public:
     Country();

@@ -97,7 +97,3 @@ std::unique_ptr<std::vector<std::unique_ptr<Product> > > ProductDao::products() 
     return list;
 }
 
-ProductDao::~ProductDao()
-{
-    
-}

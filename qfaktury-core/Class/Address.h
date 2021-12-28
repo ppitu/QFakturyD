@@ -17,7 +17,7 @@
 #include "TypeClass/County.h"
 #include "TypeClass/Province.h"
 
-class Address
+class Address final
 {
 public:
     Address();

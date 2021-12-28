@@ -3,7 +3,7 @@
 
 #include <QString>
 
-class FlatNumber
+class FlatNumber final
 {
 public:
     FlatNumber();

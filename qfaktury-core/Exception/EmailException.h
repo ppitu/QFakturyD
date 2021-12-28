@@ -3,12 +3,12 @@
 
 #include <exception>
 
-class EmailException : public std::exception
+class EmailException final : public std::exception
 {
 public:
     EmailException();
 
-    const char* what() const noexcept;
+    const char* what() const noexcept override;
 };
 
 #endif // EMAILEXCEPTION_H

@@ -3,7 +3,7 @@
 
 #include <QString>
 
-class County
+class County final
 {
 public:
     County();

@@ -10,7 +10,7 @@ QT_END_NAMESPACE
 class ProductModel;
 class ProductWidget;
 
-class MainWindow : public QMainWindow
+class MainWindow final : public QMainWindow
 {
     Q_OBJECT
 

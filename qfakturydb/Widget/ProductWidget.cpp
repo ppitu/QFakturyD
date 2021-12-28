@@ -31,49 +31,45 @@ void ProductWidget::createProduct()
 {
     Product product;
 
-    auto* dialog = new ProductDialog(product);
+    ProductDialog dialog(product);
 
-    auto dialogCode = dialog->exec();
+    auto dialogCode = dialog.exec();
 
     if(dialogCode == QDialog::Accepted)
     {
         QModelIndex createdIndex = productModel->addProduct(product);
         ui->productTable->setCurrentIndex(createdIndex);
     }
-
-    delete dialog;
 }
 
 void ProductWidget::editProduct()
 {
     if(ui->productTable->selectionModel()->selectedIndexes().isEmpty())
-        {
-            return;
-        }
+    {
+        return;
+    }
 
-        QModelIndex currentProductIndex = ui->productTable->selectionModel()->selectedIndexes().first();
+    QModelIndex currentProductIndex = ui->productTable->selectionModel()->selectedIndexes().first();
 
-        auto product = qvariant_cast<Product>(productModel->data(currentProductIndex, ProductModel::Roles::ID_ROLE));
+    auto product = qvariant_cast<Product>(productModel->data(currentProductIndex, ProductModel::Roles::ID_ROLE));
 
-        auto *dialog = new ProductDialog(product, this);
+    ProductDialog dialog(product, this);
 
-        auto dialogCode = dialog->exec();
+    auto dialogCode = dialog.exec();
 
-        if(dialogCode == QDialog::Accepted)
-        {
-            productModel->setData(currentProductIndex, QVariant::fromValue(product), ProductModel::Roles::ID_ROLE);
-        }
-
-        delete dialog;
+    if(dialogCode == QDialog::Accepted)
+    {
+        productModel->setData(currentProductIndex, QVariant::fromValue(product), ProductModel::Roles::ID_ROLE);
+    }
 }
 
 void ProductWidget::removeProduct()
 {
     if(ui->productTable->selectionModel()->selectedIndexes().isEmpty())
-        {
-            return;
-        }
+    {
+        return;
+    }
 
-        int row = ui->productTable->selectionModel()->currentIndex().row();
-        productModel->removeRow(row);
+    int row = ui->productTable->selectionModel()->currentIndex().row();
+    productModel->removeRow(row);
 }

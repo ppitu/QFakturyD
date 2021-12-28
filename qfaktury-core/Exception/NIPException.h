@@ -3,12 +3,12 @@
 
 #include <exception>
 
-class NIPException : public std::exception
+class NIPException final : public std::exception
 {
 public:
     NIPException();
 
-    const char* what() const noexcept;
+    const char* what() const noexcept override;
 };
 
 #endif // NIPEXCEPTION_H

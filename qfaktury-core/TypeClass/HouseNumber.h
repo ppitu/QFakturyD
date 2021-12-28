@@ -3,7 +3,7 @@
 
 #include <QString>
 
-class HouseNumber
+class HouseNumber final
 {
 public:
     HouseNumber();

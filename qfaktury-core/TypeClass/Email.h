@@ -3,7 +3,7 @@
 
 #include <QString>
 
-class Email
+class Email final
 {
 public:
     Email() = delete;

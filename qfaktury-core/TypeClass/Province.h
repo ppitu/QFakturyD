@@ -3,7 +3,7 @@
 
 #include <QString>
 
-class Province
+class Province final
 {
 public:
     Province();

@@ -8,7 +8,7 @@
 
 #include "TypeClass/Price.h"
 
-class Product
+class Product final
 {
 public:
     Product();

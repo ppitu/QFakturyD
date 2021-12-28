@@ -3,7 +3,7 @@
 
 #include <QString>
 
-class Municipality
+class Municipality final
 {
 public:
     Municipality();

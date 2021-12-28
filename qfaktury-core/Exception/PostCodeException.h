@@ -3,12 +3,12 @@
 
 #include <exception>
 
-class PostCodeException : public std::exception
+class PostCodeException final : public std::exception
 {
 public:
     PostCodeException();
 
-    const char* what() const noexcept;
+    const char* what() const noexcept override;
 };
 
 #endif // POSTCODEEXCEPTION_H

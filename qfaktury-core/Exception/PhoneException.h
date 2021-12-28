@@ -3,12 +3,12 @@
 
 #include <exception>
 
-class PhoneException : public std::exception
+class PhoneException final : public std::exception
 {
 public:
     PhoneException();
 
-    const char* what() const noexcept;
+    const char* what() const noexcept override;
 };
 
 #endif // PHONEEXCEPTION_H

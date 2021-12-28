@@ -3,7 +3,7 @@
 
 #include <QString>
 
-class NIP
+class NIP final
 {
 public:
     NIP();

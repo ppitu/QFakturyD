@@ -48,11 +48,6 @@ void AddressDao::addAddress(Address &address) const
     DatabaseManager::debugQuery(query);
 }
 
-/*void AddressDao::updateAddress(const Address &address) const
-{
-
-}*/
-
 void AddressDao::removeAddress(int id) const
 {
    QSqlQuery query(database);
@@ -61,28 +56,4 @@ void AddressDao::removeAddress(int id) const
    query.exec();
 
    DatabaseManager::debugQuery(query);
-}
-
-/*Address &AddressDao::getAddress(int id)
-{
-    QSqlQuery query(database);
-
-    query.prepare("SELECT * FROM address WHERE id = (:id)");
-    query.exec();
-
-    DatabaseManager::debugQuery(query);
-
-    Address address({query.value("street").toString()}, {query.value("house_number").toString()},
-                    {(query.value("flat_number").toString() == "") ? std::nullopt : std::make_optional<FlatNumber>(query.value("flat_number").toString())},
-                    {query.value("city").toString()}, {query.value("municipality").toString()}, {query.value("post_code").toString()},
-                     {(query.value("country").toString() == "") ? std::nullopt : std::make_optional<Country>(query.value("country").toString())},
-                    {(query.value("county").toString() == "") ? std::nullopt : std::make_optional<County>(query.value("flat_number").toString())},
-                    {(query.value("province").toString() == "") ? std::nullopt : std::make_optional<Province>(query.value("province").toString())});
-
-    return address;
-}*/
-
-AddressDao::~AddressDao()
-{
-
 }

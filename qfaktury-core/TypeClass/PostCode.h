@@ -3,7 +3,7 @@
 
 #include <QString>
 
-class PostCode
+class PostCode final
 {
 public:
     PostCode();

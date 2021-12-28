@@ -8,7 +8,7 @@
 class QSqlDatabase;
 class Contractor;
 
-class ContractorDao
+class ContractorDao final
 {
 public:
     explicit ContractorDao(QSqlDatabase& database_);
