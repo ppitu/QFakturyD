@@ -1,18 +1,18 @@
 #include "Province.h"
 
 Province::Province() :
-    province_("")
+    province("")
 {
 
 }
 
 Province::Province(const QString& province) :
-    province_(province)
+    province(province)
 {
 
 }
 
 const QString &Province::getProvince() const
 {
-    return province_;
+    return province;
 }

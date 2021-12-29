@@ -1,32 +1,22 @@
 #include "ProductDao.h"
 
+#include "Database/DatabaseManager.h"
+#include "Class/Product.h"
+
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QVariant>
 
-#include "Database/DatabaseManager.h"
-
-#include "Class/Product.h"
-
 ProductDao::ProductDao(QSqlDatabase& database) :
-    mDatabase(database)
+    database(database)
 {
 
 }
 
-void ProductDao::init() const
-{
-    if(!mDatabase.tables().contains("product"))
-    {
-        QSqlQuery query(mDatabase);
-        query.exec("CREATE TABLE product (id INTEGER PRIMARY KEY AUTOINCREMENT, ident VARCHAR(50) NOT NULL UNIQUE, name VARCHAR(50), code VARCHAR(20), pkwiu VARCHAR(20),"
-                   "quality VARCHAR(30), description VARCHAR(100), net REAL, gross REAL, vat INTEGER, metric VARCHAR(30))");
-    }
-}
 
 void ProductDao::addProduct(Product &product) const
 {
-    QSqlQuery query(mDatabase);
+    QSqlQuery query(database);
     query.prepare("INSERT INTO product (ident, name, code, pkwiu, quality, description, net, gross, vat, metric) VALUES"
                   "(:ident, :name, :code, :pkwiu, :quality, :description, :net, :gross, :vat, :metric)");
     query.bindValue(":ident", product.getIdent());
@@ -46,7 +36,7 @@ void ProductDao::addProduct(Product &product) const
 
 void ProductDao::updateProduct(const Product &product) const
 {
-    QSqlQuery query(mDatabase);
+    QSqlQuery query(database);
     query.prepare("UPDATE product SET ident = (:ident), name = (:name), code = (:code), pkwiu = (:pkwiu), quality = (:quality),"
                   "description = (:description), net = (:net), gross = (:gross), vat = (:vat), metric = (:metric) WHERE id = (:id)");
     query.bindValue(":ident", product.getIdent());
@@ -66,7 +56,7 @@ void ProductDao::updateProduct(const Product &product) const
 
 void ProductDao::removeProduct(int id) const
 {
-    QSqlQuery query(mDatabase);
+    QSqlQuery query(database);
     query.prepare("DELETE FROM product WHERE id = (:id)");
     query.bindValue(":id", id);
     query.exec();
@@ -75,7 +65,7 @@ void ProductDao::removeProduct(int id) const
 
 std::unique_ptr<std::vector<std::unique_ptr<Product> > > ProductDao::products() const
 {
-    QSqlQuery query("SELECT * FROM product", mDatabase);
+    QSqlQuery query("SELECT * FROM product", database);
     query.exec();
     DatabaseManager::debugQuery(query);
 

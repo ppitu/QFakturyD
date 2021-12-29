@@ -12,7 +12,7 @@ public:
     const QString& getFlatNumber() const;
 
 private:
-    QString flatNumber_;
+    QString flat_number;
 };
 
 #endif // FLATNUMBER_H

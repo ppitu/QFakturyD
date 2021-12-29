@@ -1,18 +1,18 @@
 #include "City.h"
 
 City::City() :
-    city_("")
+    city("")
 {
 
 }
 
 City::City(const QString& city) :
-    city_(city)
+    city(city)
 {
 
 }
 
 const QString &City::getCity() const
 {
-    return city_;
+    return city;
 }

@@ -2,37 +2,37 @@
 
 
 Price::Price(double net, int vat) :
-    net_(net),
-    vat_(vat),
-    gross_(0.00)
+    net(net),
+    vat(vat),
+    gross(0.00)
 {
     calculate();
 }
 
 Price::Price() :
-    net_(0.00),
-    vat_(23),
-    gross_(0.00)
+    net(0.00),
+    vat(23),
+    gross(0.00)
 {
 
 }
 
 double Price::getNet() const
 {
-    return net_;
+    return net;
 }
 
 double Price::getGross() const
 {
-    return gross_;
+    return gross;
 }
 
 int Price::getVat() const
 {
-    return vat_;
+    return vat;
 }
 
 void Price::calculate()
 {
-    gross_ = net_ + (net_ * (vat_/100.00));
+    gross = net + (net * (vat/100.00));
 }

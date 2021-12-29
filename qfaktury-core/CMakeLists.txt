@@ -17,7 +17,7 @@ add_library(qfaktury-core SHARED
   qfaktury-core_global.h
   Class/Address.cpp Class/Address.h Class/Contractor.cpp Class/Contractor.h
   Class/Product.cpp Class/Product.h
-  Database/DatabaseManager.cpp Database/DatabaseManager.cpp
+  Database/DatabaseManager.h Database/DatabaseManager.cpp
   DatabaseClass/AddressDao.cpp DatabaseClass/AddressDao.h
   DatabaseClass/ContractorDao.cpp DatabaseClass/ContractorDao.h
   DatabaseClass/ProductDao.cpp DatabaseClass/ProductDao.h

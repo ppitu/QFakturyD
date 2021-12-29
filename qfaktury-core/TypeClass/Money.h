@@ -12,7 +12,7 @@ public:
     QString toString();
 
 private:
-    int32_t money_;
+    int32_t money;
 
     void validate(const QString& value) noexcept(false);
     int32_t convertToInt(const QString& value);

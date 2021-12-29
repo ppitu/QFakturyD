@@ -1,18 +1,18 @@
 #include "HouseNumber.h"
 
 HouseNumber::HouseNumber() :
-    houseNumber_("")
+    house_number("")
 {
 
 }
 
 HouseNumber::HouseNumber(const QString& houseNumber) :
-    houseNumber_(houseNumber)
+    house_number(houseNumber)
 {
 
 }
 
 const QString &HouseNumber::getHouseNumber() const
 {
-    return houseNumber_;
+    return house_number;
 }

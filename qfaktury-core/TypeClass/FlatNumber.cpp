@@ -1,18 +1,18 @@
 #include "FlatNumber.h"
 
 FlatNumber::FlatNumber() :
-    flatNumber_("")
+    flat_number("")
 {
 
 }
 
 FlatNumber::FlatNumber(const QString& flatNumber) :
-    flatNumber_(flatNumber)
+    flat_number(flatNumber)
 {
 
 }
 
 const QString &FlatNumber::getFlatNumber() const
 {
-    return flatNumber_;
+    return flat_number;
 }

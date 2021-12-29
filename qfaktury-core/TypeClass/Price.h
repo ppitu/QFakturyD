@@ -15,9 +15,9 @@ public:
     int getVat() const;
 
 private:
-    double net_;
-    double gross_;
-    int vat_;
+    double net;
+    double gross;
+    int vat;
 
     void calculate();
 };

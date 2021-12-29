@@ -12,7 +12,7 @@ public:
     const QString& getPhone() const;
 
 private:
-    QString phone_;
+    QString phone;
 
     void validate();
 };

@@ -1,18 +1,18 @@
 #include "Street.h"
 
 Street::Street() :
-    street_("")
+    street("")
 {
 
 }
 
 Street::Street(const QString& street) :
-    street_(street)
+    street(street)
 {
 
 }
 
 const QString& Street::getStreet() const
 {
-    return street_;
+    return street;
 }

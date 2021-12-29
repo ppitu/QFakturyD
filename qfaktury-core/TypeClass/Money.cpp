@@ -4,22 +4,22 @@
 
 #include <QRegularExpression>
 
-Money::Money(const QString& money) noexcept(false)
+Money::Money(const QString& new_money) noexcept(false)
 {
-    validate(money);
+    validate(new_money);
 
-    money_ = convertToInt(money);
+    money = convertToInt(new_money);
 }
 
 Money::Money(int32_t money) :
-    money_(money)
+    money(money)
 {
 
 }
 
 QString Money::toString()
 {
-    return QString::number(money_/100) + "." + QString::number(money_%100);
+    return QString::number(money/100) + "." + QString::number(money%100);
 }
 
 void Money::validate(const QString& value) noexcept(false)

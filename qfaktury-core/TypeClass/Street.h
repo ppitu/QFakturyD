@@ -12,7 +12,7 @@ public:
     const QString& getStreet() const;
 
 private:
-    QString street_;
+    QString street;
 };
 
 #endif // STREET_H

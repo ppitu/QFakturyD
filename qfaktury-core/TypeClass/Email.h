@@ -12,7 +12,7 @@ public:
     const QString& getEmail() const;
 
 private:
-    QString email_;
+    QString email;
 
     void validate();
 };

@@ -12,7 +12,7 @@ public:
     const QString& getPostCode() const;
 
 private:
-    QString postCode_;
+    QString postCode;
 
     void validate(QString value);
 };

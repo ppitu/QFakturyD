@@ -1,18 +1,18 @@
 #include "County.h"
 
 County::County() :
-    county_("")
+    county("")
 {
 
 }
 
 County::County(const QString& county) :
-    county_(county)
+    county(county)
 {
 
 }
 
 const QString &County::getCounty() const
 {
-    return county_;
+    return county;
 }

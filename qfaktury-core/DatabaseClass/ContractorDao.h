@@ -2,6 +2,7 @@
 #define CONTRACTORDAO_H
 
 #include <QString>
+
 #include <memory>
 #include <vector>
 
@@ -11,9 +12,8 @@ class Contractor;
 class ContractorDao final
 {
 public:
-    explicit ContractorDao(QSqlDatabase& database_);
+    explicit ContractorDao(QSqlDatabase& new_database);
 
-    void init() const;
     void addContractor(Contractor& contractor) const;
     void updateContractor(const Contractor& contractor) const;
     void removeContractor(int id) const;

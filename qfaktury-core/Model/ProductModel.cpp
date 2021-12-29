@@ -3,8 +3,8 @@
 
 ProductModel::ProductModel(QObject *parent) :
     QAbstractTableModel(parent),
-    mDb(DatabaseManager::instance()),
-    mProducts(mDb.mProductDao.products())
+    db(DatabaseManager::instance()),
+    products(db.product_dao.products())
 {
 
 }
@@ -14,8 +14,8 @@ QModelIndex ProductModel::addProduct(const Product &product)
     int rowIndex = rowCount();
     beginInsertRows(QModelIndex(), rowIndex, rowIndex);
     std::unique_ptr<Product> newProduct(new Product(product));
-    mDb.mProductDao.addProduct(*newProduct);
-    mProducts->push_back(std::move(newProduct));
+    db.product_dao.addProduct(*newProduct);
+    products->push_back(std::move(newProduct));
     endInsertRows();
 
     return index(rowIndex, 0);
@@ -24,7 +24,7 @@ QModelIndex ProductModel::addProduct(const Product &product)
 int ProductModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    return mProducts->size();
+    return products->size();
 }
 
 int ProductModel::columnCount(const QModelIndex &parent) const
@@ -39,7 +39,7 @@ QVariant ProductModel::data(const QModelIndex &index, int role) const
         return {};
     }
 
-    Product& product = *mProducts->at(index.row());
+    Product& product = *products->at(index.row());
 
     switch (role) {
     case Roles::ID_ROLE:
@@ -82,9 +82,9 @@ bool ProductModel::setData(const QModelIndex &index, const QVariant &value, int 
     product.setDescription(productTemp.getDescription());
     product.setPrice(productTemp.getPrice());
     product.setMetric(productTemp.getMetric());*/
-    *mProducts->at(index.row()) = product;
+    *products->at(index.row()) = product;
 
-    mDb.mProductDao.updateProduct(product);
+    db.product_dao.updateProduct(product);
     emit dataChanged(index, index);
 
     return true;
@@ -101,11 +101,11 @@ bool ProductModel::removeRows(int row, int count, const QModelIndex &parent)
     int countLeft = count;
 
     while (countLeft--) {
-        const Product& product = *mProducts->at(row + countLeft);
-        mDb.mProductDao.removeProduct(product.getId());
+        const Product& product = *products->at(row + countLeft);
+        db.product_dao.removeProduct(product.getId());
     }
 
-    mProducts->erase(mProducts->begin() + row, mProducts->begin() + row + count);
+    products->erase(products->begin() + row, products->begin() + row + count);
 
     endRemoveRows();
 

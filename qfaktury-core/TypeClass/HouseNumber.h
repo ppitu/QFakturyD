@@ -12,7 +12,7 @@ public:
     const QString& getHouseNumber() const;
 
 private:
-    QString houseNumber_;
+    QString house_number;
 };
 
 #endif // HOUSENUMBER_H

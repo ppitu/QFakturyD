@@ -12,7 +12,7 @@ public:
     const QString& getMunicipality() const;
 
 private:
-    QString municipality_;
+    QString municipality;
 };
 
 #endif // MUNICIPALITY_H

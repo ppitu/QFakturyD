@@ -2,6 +2,7 @@
 #define ADDRESSDAO_H
 
 #include <QString>
+
 #include <memory>
 #include <vector>
 
@@ -11,9 +12,8 @@ class Address;
 class AddressDao final
 {
 public:
-    explicit AddressDao(QSqlDatabase& database_);
+    explicit AddressDao(QSqlDatabase& new_database);
 
-    void init() const;
     void addAddress(Address& address) const;
     void removeAddress(int id) const;
 

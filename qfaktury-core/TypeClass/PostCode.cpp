@@ -10,19 +10,19 @@ PostCode::PostCode()
 }
 
 PostCode::PostCode(QString postCode) :
-    postCode_(postCode)
+    postCode(postCode)
 {
-    validate(postCode_);
+    validate(postCode);
 }
 
 const QString &PostCode::getPostCode() const
 {
-    return postCode_;
+    return postCode;
 }
 
 void PostCode::validate(QString value)
 {
-    if(postCode_.size() != 6)
+    if(postCode.size() != 6)
     {
         throw PostCodeException();
     }

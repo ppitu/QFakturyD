@@ -12,7 +12,7 @@ public:
     const QString& getProvince() const;
 
 private:
-    QString province_;
+    QString province;
 };
 
 #endif // PROVINCE_H

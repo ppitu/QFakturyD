@@ -12,7 +12,7 @@ public:
     const QString& getNIP() const;
 
 private:
-    QString nip_;
+    QString nip;
 
     void validate();
 };

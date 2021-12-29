@@ -1,30 +1,15 @@
 #include "AddressDao.h"
 
+#include "Database/DatabaseManager.h"
+#include "Class/Address.h"
+
 #include <QSqlDatabase>
 #include <QSqlQuery>
-
-#include "Database/DatabaseManager.h"
-
-#include "Class/Address.h"
 
 AddressDao::AddressDao(QSqlDatabase& database_) :
     database(database_)
 {
 
-}
-
-void AddressDao::init() const
-{
-    if(!database.tables().contains("address"))
-    {
-        QSqlQuery query(database);
-
-        query.exec("CREATE TABLE address (id INTEGER PRIMARY KEY AUTOINCREMENT, street VARCHAR(20), house_number VARCHAR(10), "
-                   "flat_number VARCHAR(10), city VARCHAR(30), municipality VARCHAR(30), post_code VARCHAR(10), county VARCHAR(30),"
-                   "country VARCHAR(30), province VARCHAR(30))");
-
-        DatabaseManager::debugQuery(query);
-    }
 }
 
 void AddressDao::addAddress(Address &address) const

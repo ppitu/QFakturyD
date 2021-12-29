@@ -10,25 +10,25 @@ NIP::NIP()
 }
 
 NIP::NIP(const QString &nip) :
-    nip_(nip)
+    nip(nip)
 {
 
 }
 
 const QString &NIP::getNIP() const
 {
-    return nip_;
+    return nip;
 }
 
 void NIP::validate()
 {
-    if(nip_.size() != 11)
+    if(nip.size() != 11)
     {
         throw NIPException();
     }
 
     QRegularExpression re("\\d\\d\\d\\d\\d\\d\\d\\d\\d\\d\\d");
-    QRegularExpressionMatch match = re.match(nip_);
+    QRegularExpressionMatch match = re.match(nip);
 
     if(!match.hasMatch())
     {

@@ -12,7 +12,7 @@ public:
     const QString& getCounty() const;
 
 private:
-    QString county_;
+    QString county;
 };
 
 #endif // COUNTY_H

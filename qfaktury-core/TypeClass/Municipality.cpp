@@ -1,18 +1,18 @@
 #include "Municipality.h"
 
 Municipality::Municipality() :
-    municipality_("")
+    municipality("")
 {
 
 }
 
 Municipality::Municipality(const QString& municipality) :
-    municipality_(municipality)
+    municipality(municipality)
 {
 
 }
 
 const QString &Municipality::getMunicipality() const
 {
-    return municipality_;
+    return municipality;
 }

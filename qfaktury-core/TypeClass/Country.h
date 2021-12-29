@@ -12,7 +12,7 @@ public:
     const QString& getCountry() const;
 
 private:
-    QString country_;
+    QString country;
 };
 
 #endif // COUNTRY_H

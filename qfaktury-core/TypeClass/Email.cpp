@@ -1,14 +1,14 @@
 #include "Email.h"
 
 Email::Email(const QString &email) :
-    email_(email)
+    email(email)
 {
     validate();
 }
 
 const QString &Email::getEmail() const
 {
-    return email_;
+    return email;
 }
 
 void Email::validate()

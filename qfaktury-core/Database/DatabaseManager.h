@@ -1,10 +1,12 @@
 #ifndef DATABASEMANAGER_H
 #define DATABASEMANAGER_H
 
+#include "DatabaseClass/ProductDao.h"
+
 #include <QString>
+
 #include <memory>
 
-#include "DatabaseClass/ProductDao.h"
 
 class QSqlDatabase;
 class QSqlQuery;
@@ -23,10 +25,12 @@ protected:
     DatabaseManager(const QString& path = DATABASE_NAME);
 
 private:
-    std::unique_ptr<QSqlDatabase> mDatabase;
+    std::unique_ptr<QSqlDatabase> database;
+
+    void updateDatabase();
 
 public:
-    const ProductDao mProductDao;
+    const ProductDao product_dao;
 };
 
 #endif // DATABASEMANAGER_H

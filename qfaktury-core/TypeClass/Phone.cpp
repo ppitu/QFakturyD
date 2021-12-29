@@ -2,14 +2,14 @@
 
 
 Phone::Phone(const QString &phone) :
-    phone_(phone)
+    phone(phone)
 {
     validate();
 }
 
 const QString &Phone::getPhone() const
 {
-    return phone_;
+    return phone;
 }
 
 void Phone::validate()

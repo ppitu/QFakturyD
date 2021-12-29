@@ -1,20 +1,14 @@
 #include "ContractorDao.h"
 
+#include "Database/DatabaseManager.h"
+#include "Class/Contractor.h"
+
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QVariant>
 
-#include "Database/DatabaseManager.h"
-
-#include "Class/Contractor.h"
-
 ContractorDao::ContractorDao(QSqlDatabase& database_) :
     database(database_)
-{
-
-}
-
-void ContractorDao::init() const
 {
 
 }

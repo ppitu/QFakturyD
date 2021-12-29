@@ -59,8 +59,8 @@ private:
     bool isIndexValid(const QModelIndex& index) const;
 
 private:
-    DatabaseManager& mDb;
-    std::unique_ptr<std::vector<std::unique_ptr<Product>>> mProducts;
+    DatabaseManager& db;
+    std::unique_ptr<std::vector<std::unique_ptr<Product>>> products;
 };
 
 #endif // PRODUCTMODEL_H
