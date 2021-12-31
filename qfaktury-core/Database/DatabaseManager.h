@@ -4,11 +4,10 @@
 #include "DatabaseClass/ProductDao.h"
 
 #include <QString>
+#include <QSqlDatabase>
 
 #include <memory>
 
-
-class QSqlDatabase;
 class QSqlQuery;
 
 const QString DATABASE_NAME = "qfaktury.db";
@@ -25,7 +24,7 @@ protected:
     DatabaseManager(const QString& path = DATABASE_NAME);
 
 private:
-    std::unique_ptr<QSqlDatabase> database;
+    QSqlDatabase database;
 
     void updateDatabase();
 
