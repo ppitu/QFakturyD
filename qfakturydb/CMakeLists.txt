@@ -47,6 +47,7 @@ else()
 endif()
 
 include_directories("../qfaktury-core")
+include_directories("./Widget")
 
 target_link_libraries(qfakturydb PRIVATE qfaktury-core)
 target_link_libraries(qfakturydb PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)

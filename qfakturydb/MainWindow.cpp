@@ -10,13 +10,8 @@ MainWindow::MainWindow(QWidget *parent)
       productModel(nullptr),
       productWidget(nullptr)
 {
-    ui->setupUi(this);
-
-    productModel = new ProductModel(this);
-    productWidget = new ProductWidget(this);
-    productWidget->setModel(productModel);
-
-    setCentralWidget(productWidget);
+  ui->setupUi(this);
+  ui->WMessageLog->hide();
 }
 
 MainWindow::~MainWindow()
