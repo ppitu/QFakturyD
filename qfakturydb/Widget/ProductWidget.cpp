@@ -14,6 +14,9 @@ ProductWidget::ProductWidget(QWidget *parent) :
     connect(ui->btnAdd, &QPushButton::clicked, this, &ProductWidget::createProduct);
     connect(ui->btnRemove, &QPushButton::clicked, this, &ProductWidget::removeProduct);
     connect(ui->btnEdit, &QPushButton::clicked, this, &ProductWidget::editProduct);
+
+    productModel = new ProductModel(this);
+    setModel(productModel);
 }
 
 ProductWidget::~ProductWidget()
