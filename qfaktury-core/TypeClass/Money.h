@@ -3,13 +3,19 @@
 
 #include <QString>
 
+class Vat;
+
 class Money
 {
 public:
     Money(const QString& money) noexcept(false);
     Money(int32_t money);
+    Money();
 
-    QString toString();
+    QString toString() const;
+
+    Money operator*(const Vat &obj) const;
+    Money operator*()
 
 private:
     int32_t money;

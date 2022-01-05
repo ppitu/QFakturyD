@@ -27,7 +27,7 @@ void ProductDao::addProduct(Product &product) const
     query.bindValue(":description", product.getDescription());
     query.bindValue(":net", product.getPrice().getNet());
     query.bindValue(":gross", product.getPrice().getGross());
-    query.bindValue(":vat", product.getPrice().getVat());
+    //query.bindValue(":vat", product.getPrice().getVat());
     query.bindValue(":metric", product.getMetric());
     query.exec();
     product.setId(query.lastInsertId().toInt());
@@ -48,7 +48,7 @@ void ProductDao::updateProduct(const Product &product) const
     query.bindValue(":description", product.getDescription());
     query.bindValue(":net", product.getPrice().getNet());
     query.bindValue(":gross", product.getPrice().getGross());
-    query.bindValue(":vat", product.getPrice().getVat());
+    //query.bindValue(":vat", product.getPrice().getVat());
     query.bindValue(":metric", product.getMetric());
     query.exec();
     DatabaseManager::debugQuery(query);
@@ -73,7 +73,7 @@ std::unique_ptr<std::vector<std::unique_ptr<Product> > > ProductDao::products() 
 
     while(query.next())
     {
-        Price price(query.value("net").toDouble(), query.value("vat").toInt());
+        Price price(query.value("net").toInt(), query.value("vat").toString());
 
         std::unique_ptr<Product> product(new Product(query.value("id").toInt(), -1, query.value("ident").toString(),
                                                      query.value("name").toString(), query.value("code").toString(),

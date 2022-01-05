@@ -55,7 +55,7 @@ QVariant ProductModel::data(const QModelIndex &index, int role) const
         case ColumnName::DESCRIPTION: return product.getDescription();
         case ColumnName::NET: return product.getPrice().getNet();
         case ColumnName::GROSS: return product.getPrice().getGross();
-        case ColumnName::VAT: return product.getPrice().getVat();
+        //case ColumnName::VAT: return product.getPrice().getVat();
         case ColumnName::METRIC: return product.getMetric();
         }
     default:

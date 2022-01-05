@@ -23,8 +23,8 @@ ProductDialog::ProductDialog(Product& product, QWidget *parent) :
     ui->elMetric->setText(mProduct.getMetric());
     ui->elQuality->setText(mProduct.getQuality());
     ui->elPKWIU->setText(mProduct.getPkwiu());
-    ui->dsNet->setValue(mProduct.getPrice().getNet());
-    ui->dsGross->setValue(mProduct.getPrice().getGross());
+    ui->dsNet->setValue(mProduct.getPrice().getNet().toDouble());
+    ui->dsGross->setValue(mProduct.getPrice().getGross().toDouble());
 }
 
 ProductDialog::~ProductDialog()
@@ -34,7 +34,7 @@ ProductDialog::~ProductDialog()
 
 void ProductDialog::accept()
 {
-    Price price(ui->dsNet->value(), ui->cbVat->currentText().toInt());
+    Price price(ui->dsNet->value(), ui->cbVat->currentText());
     Product product(mProduct.getId(), mProduct.getLastId(), ui->elIdent->text(),
                     ui->elName->text(), ui->elCode->text(), ui->elPKWIU->text(),
                     ui->elDescription->text(), ui->elQuality->text(), ui->elMetric->text(),
@@ -52,7 +52,7 @@ void ProductDialog::reject()
 
 void ProductDialog::calculateGross()
 {
-    Price price(ui->dsNet->value(), ui->cbVat->currentText().toInt());
-    ui->dsGross->setValue(price.getGross());
+    Price price(ui->dsNet->value(), ui->cbVat->currentText());
+    ui->dsGross->setValue(price.getGross().toDouble());
     qDebug() << "Dziala: " << price.getGross();
 }

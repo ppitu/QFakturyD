@@ -1,38 +1,27 @@
 #include "Price.h"
 
 
-Price::Price(double net, int vat) :
-    net(net),
-    vat(vat),
-    gross(0.00)
+Price::Price(const Money& new_net, const Vat& new_vat) :
+    net(new_net),
+    vat(new_vat)
 {
-    calculate();
 }
 
-Price::Price() :
-    net(0.00),
-    vat(23),
-    gross(0.00)
+Price::Price()
 {
-
 }
 
-double Price::getNet() const
+QString Price::getNet() const
 {
-    return net;
+    return net.toString();
 }
 
-double Price::getGross() const
+QString Price::getGross() const
 {
-    return gross;
-}
-
-int Price::getVat() const
-{
-    return vat;
+    return (net * vat).toString();
 }
 
 void Price::calculate()
 {
-    gross = net + (net * (vat/100.00));
+    //gross = net + (net * (vat/100.00));
 }

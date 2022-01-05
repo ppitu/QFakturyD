@@ -11,11 +11,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Core REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core REQUIRED)
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Sql REQUIRED)
+find_package(Qt6 COMPONENTS Sql REQUIRED)
 
 add_library(qfaktury-core SHARED
   qfaktury-core_global.h
-  Class/Address.cpp Class/Address.h Class/Contractor.cpp Class/Contractor.h
+  Class/Address.cpp Class/Address.h
+  Class/Contractor.cpp Class/Contractor.h
   Class/Product.cpp Class/Product.h
   Database/DatabaseManager.h Database/DatabaseManager.cpp
   DatabaseClass/AddressDao.cpp DatabaseClass/AddressDao.h
@@ -41,11 +42,12 @@ add_library(qfaktury-core SHARED
   TypeClass/Street.cpp TypeClass/Street.h
   TypeClass/Money.h TypeClass/Money.cpp
   Exception/MoneyException.h Exception/MoneyException.cpp
+  TypeClass/Vat.h TypeClass/Vat.cpp
 )
 
 target_link_libraries(qfaktury-core PRIVATE Qt${QT_VERSION_MAJOR}::Core)
 
-target_compile_definitions(qfaktury-core PRIVATE QFAKTURYCORE_LIBRARY)
-target_link_libraries(qfaktury-core PRIVATE Qt${QT_VERSION_MAJOR}::Sql)
+#target_compile_definitions(qfaktury-core PRIVATE QFAKTURYCORE_LIBRARY)
+target_link_libraries(qfaktury-core PRIVATE Qt6::Sql)
 
 target_compile_definitions(qfaktury-core PRIVATE QFAKTURYCORE_LIBRARY)

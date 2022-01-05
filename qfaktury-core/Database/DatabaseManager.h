@@ -4,7 +4,7 @@
 #include "DatabaseClass/ProductDao.h"
 
 #include <QString>
-#include <QSqlDatabase>
+#include <QtSql/QSqlDatabase>
 
 #include <memory>
 

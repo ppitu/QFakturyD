@@ -4,20 +4,21 @@
 // TODO
 // Dodac obsluge dwoch liczba po przecinku, na razie moze ich byc wiecej
 
+#include "Money.h"
+#include "Vat.h"
+
 class Price final
 {
 public:
-    Price(double net, int vat);
+    Price(const Money& new_net, const Vat& new_vat);
     Price();
 
-    double getNet() const;
-    double getGross() const;
-    int getVat() const;
+    QString getNet() const;
+    QString getGross() const;
 
 private:
-    double net;
-    double gross;
-    int vat;
+    Money net;
+    Vat vat;
 
     void calculate();
 };

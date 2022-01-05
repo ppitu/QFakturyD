@@ -1,6 +1,7 @@
 #include "Money.h"
 
 #include "Exception/MoneyException.h"
+#include "Vat.h"
 
 #include <QRegularExpression>
 
@@ -17,9 +18,25 @@ Money::Money(int32_t money) :
 
 }
 
-QString Money::toString()
+Money::Money() :
+    money(0)
 {
+
+}
+
+QString Money::toString() const
+{
+    if(money == 0)
+    {
+        return "0.00";
+    }
+
     return QString::number(money/100) + "." + QString::number(money%100);
+}
+
+Money Money::operator*(const Vat &obj) const
+{
+    return Money((money * (float)(obj.getVat().toInt()/100.0)));
 }
 
 void Money::validate(const QString& value) noexcept(false)
