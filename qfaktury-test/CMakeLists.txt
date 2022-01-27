@@ -16,7 +16,8 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(qfaktury-test main.cpp tst_firsttest.cpp tst_firsttest.h)
+add_executable(qfaktury-test main.cpp
+    tst_MoneyType.h tst_MoneyType.cpp)
 
 include_directories("../qfaktury-core")
 

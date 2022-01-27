@@ -43,7 +43,13 @@ QString Money::toString() const
         return "0.00";
     }
 
-    return QString::number(money/100) + "." + QString::number(money%100);
+    auto x = QString::number(money/100);
+    auto z = QString::number(money%100);
+
+    if(z.size() == 1)
+        z += "0";
+
+    return x + "." + z;
 }
 
 Money Money::operator*(const Vat &obj) const
@@ -63,7 +69,7 @@ Money Money::operator+(const Money &obj) const
 
 void Money::validate(const QString& value) noexcept(false)
 {
-    QRegularExpression re("\\d*\\.^[0-9]{2}$");
+    QRegularExpression re("^[0-9]+(\\.[0-9]{1,2})?$");
     auto match = re.match(value);
 
     if(!match.hasMatch())

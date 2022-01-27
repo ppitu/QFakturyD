@@ -1,6 +1,6 @@
 #include <QTest>
 
-#include "tst_firsttest.h"
+#include "tst_MoneyType.h"
 
 int main(int argc, char** argv)
 {
@@ -11,7 +11,7 @@ int main(int argc, char** argv)
         delete obj;
     };
 
-    ASSERT_TEST(new FirstTest());
+    ASSERT_TEST(new MoneyTest());
 
     return status;
 }

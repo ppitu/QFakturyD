@@ -11,6 +11,8 @@ class Money
 {
 public:
     Money(const QString& money) noexcept(false);
+    //Important!!!
+    //Two last digit are decimal
     Money(int32_t money);
     Money(float money);
     Money(double money);
