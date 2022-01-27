@@ -12,10 +12,20 @@ Money::Money(const QString& new_money) noexcept(false)
     money = convertToInt(new_money);
 }
 
-Money::Money(int32_t money) :
-    money(money)
+Money::Money(int32_t new_money) :
+    money(new_money)
 {
 
+}
+
+Money::Money(float new_money)
+{
+    money = static_cast<int>(new_money * 100);
+}
+
+Money::Money(double new_money)
+{
+    money = static_cast<int>(new_money * 100);
 }
 
 Money::Money() :
@@ -36,7 +46,17 @@ QString Money::toString() const
 
 Money Money::operator*(const Vat &obj) const
 {
-    return Money((money * (float)(obj.getVat().toInt()/100.0)));
+    return Money((float)(money/100) * (float)(obj.getVat().toInt()/100.0));
+}
+
+Money Money::operator*(const Money& obj) const
+{
+    return Money(this->money + obj.money);
+}
+
+Money Money::operator+(const Money &obj) const
+{
+    return Money(this->money + obj.money);
 }
 
 void Money::validate(const QString& value) noexcept(false)

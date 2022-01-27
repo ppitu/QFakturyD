@@ -54,5 +54,4 @@ void ProductDialog::calculateGross()
 {
     Price price(ui->dsNet->value(), ui->cbVat->currentText());
     ui->dsGross->setValue(price.getGross().toDouble());
-    qDebug() << "Dziala: " << price.getGross();
 }

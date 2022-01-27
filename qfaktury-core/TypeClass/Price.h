@@ -19,8 +19,6 @@ public:
 private:
     Money net;
     Vat vat;
-
-    void calculate();
 };
 
 #endif // PRICE_H

@@ -18,10 +18,5 @@ QString Price::getNet() const
 
 QString Price::getGross() const
 {
-    return (net * vat).toString();
-}
-
-void Price::calculate()
-{
-    //gross = net + (net * (vat/100.00));
+    return (net + (net * vat)).toString();
 }
