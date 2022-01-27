@@ -1,5 +1,7 @@
 #include "Product.h"
 
+namespace qfaktury::core {
+
 Product::Product() :
     lastId_(0),
     name_(""),
@@ -81,3 +83,5 @@ Product::Product(int id, int lastId, const QString &ident, const QString &name, 
     metric_(metric),
     price_(price)
 {}
+
+}

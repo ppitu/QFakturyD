@@ -11,6 +11,9 @@
 #include "TypeClass/PostCode.h"
 #include "Address.h"
 
+namespace qfaktury::core
+{
+
 class Contractor final
 {
 public:
@@ -34,6 +37,8 @@ private:
 
 };
 
-Q_DECLARE_METATYPE(Contractor);
+}
+
+Q_DECLARE_METATYPE(qfaktury::core::Contractor);
 
 #endif // CONTRACTOR_H

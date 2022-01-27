@@ -4,6 +4,8 @@
 
 #include "TypeClass/Price.h"
 
+using namespace qfaktury::core;
+
 ProductDialog::ProductDialog(Product& product, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ProductDialog),
@@ -34,6 +36,8 @@ ProductDialog::~ProductDialog()
 
 void ProductDialog::accept()
 {
+    using namespace qfaktury::core;
+
     Price price(ui->dsNet->value(), ui->cbVat->currentText());
     Product product(mProduct.getId(), mProduct.getLastId(), ui->elIdent->text(),
                     ui->elName->text(), ui->elCode->text(), ui->elPKWIU->text(),
@@ -52,6 +56,8 @@ void ProductDialog::reject()
 
 void ProductDialog::calculateGross()
 {
+    using namespace qfaktury::core;
+
     Price price(ui->dsNet->value(), ui->cbVat->currentText());
     ui->dsGross->setValue(price.getGross().toDouble());
 }

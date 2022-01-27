@@ -17,6 +17,9 @@
 #include "TypeClass/County.h"
 #include "TypeClass/Province.h"
 
+namespace qfaktury::core
+{
+
 class Address final
 {
 public:
@@ -46,5 +49,7 @@ private:
     std::optional<County> county_;
     std::optional<Province> provice_;
 };
+
+}
 
 #endif // ADDRESS_H

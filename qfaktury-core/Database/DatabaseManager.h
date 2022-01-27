@@ -1,14 +1,17 @@
 #ifndef DATABASEMANAGER_H
 #define DATABASEMANAGER_H
 
-#include "DatabaseClass/ProductDao.h"
-
 #include <QString>
 #include <QtSql/QSqlDatabase>
 
 #include <memory>
 
+#include "DatabaseClass/ProductDao.h"
+
 class QSqlQuery;
+
+namespace qfaktury::database
+{
 
 const QString DATABASE_NAME = "qfaktury.db";
 
@@ -31,5 +34,7 @@ private:
 public:
     const ProductDao product_dao;
 };
+
+}
 
 #endif // DATABASEMANAGER_H

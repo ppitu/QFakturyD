@@ -3,6 +3,8 @@
 
 #include <QString>
 
+namespace qfaktury::core {
+
 class Phone final
 {
 public:
@@ -16,5 +18,7 @@ private:
 
     void validate();
 };
+
+}
 
 #endif // PHONE_H

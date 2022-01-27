@@ -7,6 +7,8 @@
 #include "Money.h"
 #include "Vat.h"
 
+namespace qfaktury::core {
+
 class Price final
 {
 public:
@@ -20,5 +22,7 @@ private:
     Money net;
     Vat vat;
 };
+
+}
 
 #endif // PRICE_H

@@ -1,11 +1,13 @@
 #include "ContractorDao.h"
 
-#include "Database/DatabaseManager.h"
-#include "Class/Contractor.h"
-
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QVariant>
+
+#include "Database/DatabaseManager.h"
+
+namespace qfaktury::database
+{
 
 ContractorDao::ContractorDao(QSqlDatabase& database_) :
     database(database_)
@@ -13,12 +15,12 @@ ContractorDao::ContractorDao(QSqlDatabase& database_) :
 
 }
 
-void ContractorDao::addContractor(Contractor &contractor) const
+void ContractorDao::addContractor(core::Contractor &contractor) const
 {
 
 }
 
-void ContractorDao::updateContractor(const Contractor &contractor) const
+void ContractorDao::updateContractor(const core::Contractor &contractor) const
 {
 
 }
@@ -28,12 +30,14 @@ void ContractorDao::removeContractor(int id) const
 
 }
 
-std::unique_ptr<std::vector<std::unique_ptr<Contractor> > > ContractorDao::contractors() const
+std::unique_ptr<std::vector<std::unique_ptr<core::Contractor> > > ContractorDao::contractors() const
 {
     return nullptr;
 }
 
 ContractorDao::~ContractorDao()
 {
+
+}
 
 }

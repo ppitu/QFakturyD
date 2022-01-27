@@ -3,6 +3,8 @@
 
 #include <QString>
 
+namespace qfaktury::core {
+
 class FlatNumber final
 {
 public:
@@ -15,4 +17,5 @@ private:
     QString flat_number;
 };
 
+}
 #endif // FLATNUMBER_H

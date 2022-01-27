@@ -3,6 +3,8 @@
 
 #include <QString>
 
+namespace qfaktury::core {
+
 class City final
 {
 public:
@@ -14,5 +16,7 @@ public:
 private:
     QString city;
 };
+
+}
 
 #endif // CITY_H

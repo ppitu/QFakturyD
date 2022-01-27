@@ -8,8 +8,11 @@
 
 #include "TypeClass/Price.h"
 
+namespace qfaktury::core {
+
 class Product final
 {
+
 public:
     Product();
     Product(int id, int lastId, const QString &ident, const QString &name, const QString &code, const QString &pkwiu,
@@ -40,6 +43,8 @@ private:
     Price price_;
 };
 
-Q_DECLARE_METATYPE(Product);
+}
+
+Q_DECLARE_METATYPE(qfaktury::core::Product);
 
 #endif // PRODUCT_H

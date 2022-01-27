@@ -4,6 +4,8 @@
 #include "Model/ProductModel.h"
 #include "Dialog/ProductDialog.h"
 
+using namespace qfaktury::core;
+
 ProductWidget::ProductWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ProductWidget),

@@ -1,5 +1,6 @@
 #include "Price.h"
 
+namespace qfaktury::core {
 
 Price::Price(const Money& new_net, const Vat& new_vat) :
     net(new_net),
@@ -19,4 +20,6 @@ QString Price::getNet() const
 QString Price::getGross() const
 {
     return (net + (net * vat)).toString();
+}
+
 }

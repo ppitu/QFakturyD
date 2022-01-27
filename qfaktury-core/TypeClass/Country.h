@@ -3,6 +3,8 @@
 
 #include <QString>
 
+namespace qfaktury::core {
+
 class Country final
 {
 public:
@@ -15,4 +17,5 @@ private:
     QString country;
 };
 
+}
 #endif // COUNTRY_H

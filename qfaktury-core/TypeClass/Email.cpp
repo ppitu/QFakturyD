@@ -1,5 +1,7 @@
 #include "Email.h"
 
+namespace qfaktury::core {
+
 Email::Email(const QString &email) :
     email(email)
 {
@@ -15,4 +17,6 @@ void Email::validate()
 {
     // TODO
     // Add validation
+}
+
 }

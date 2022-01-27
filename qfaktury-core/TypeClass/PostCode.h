@@ -3,6 +3,9 @@
 
 #include <QString>
 
+namespace qfaktury::core {
+
+
 class PostCode final
 {
 public:
@@ -16,5 +19,7 @@ private:
 
     void validate(QString value);
 };
+
+}
 
 #endif // POSTCODE_H

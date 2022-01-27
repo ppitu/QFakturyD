@@ -1,5 +1,7 @@
 #include "Address.h"
 
+namespace qfaktury::core {
+
 const Street& Address::getStreet() const
 {
     return street_;
@@ -66,5 +68,7 @@ Address::Address() :
     county_(std::nullopt),
     provice_(std::nullopt)
 {
+
+}
 
 }

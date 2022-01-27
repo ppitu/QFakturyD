@@ -3,6 +3,8 @@
 
 #include <QString>
 
+namespace qfaktury::core {
+
 class Vat;
 
 class Money
@@ -26,4 +28,5 @@ private:
     int32_t convertToInt(const QString& value);
 };
 
+}
 #endif // MONEY_H

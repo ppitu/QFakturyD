@@ -1,5 +1,7 @@
 #include "HouseNumber.h"
 
+namespace qfaktury::core {
+
 HouseNumber::HouseNumber() :
     house_number("")
 {
@@ -15,4 +17,6 @@ HouseNumber::HouseNumber(const QString& houseNumber) :
 const QString &HouseNumber::getHouseNumber() const
 {
     return house_number;
+}
+
 }

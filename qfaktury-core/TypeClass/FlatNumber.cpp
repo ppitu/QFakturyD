@@ -1,5 +1,7 @@
 #include "FlatNumber.h"
 
+namespace qfaktury::core {
+
 FlatNumber::FlatNumber() :
     flat_number("")
 {
@@ -15,4 +17,6 @@ FlatNumber::FlatNumber(const QString& flatNumber) :
 const QString &FlatNumber::getFlatNumber() const
 {
     return flat_number;
+}
+
 }

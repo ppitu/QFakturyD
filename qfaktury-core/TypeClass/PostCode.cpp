@@ -4,6 +4,8 @@
 
 #include <QRegularExpression>
 
+namespace qfaktury::core {
+
 PostCode::PostCode()
 {
 
@@ -34,5 +36,7 @@ void PostCode::validate(QString value)
     {
         throw PostCodeException();
     }
+
+}
 
 }

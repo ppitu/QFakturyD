@@ -4,6 +4,9 @@
 #include <QSqlError>
 #include <QSqlQuery>
 
+namespace qfaktury::database
+{
+
 void DatabaseManager::debugQuery(const QSqlQuery &query)
 {
     if(query.lastError().type() == QSqlError::ErrorType::NoError) {
@@ -64,5 +67,7 @@ void DatabaseManager::updateDatabase()
         DatabaseManager::debugQuery(query);
     }
 
+
+}
 
 }

@@ -3,6 +3,8 @@
 
 #include <QString>
 
+namespace qfaktury::core {
+
 class Province final
 {
 public:
@@ -14,5 +16,7 @@ public:
 private:
     QString province;
 };
+
+}
 
 #endif // PROVINCE_H

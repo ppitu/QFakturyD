@@ -1,11 +1,13 @@
 #include "ProductDao.h"
 
 #include "Database/DatabaseManager.h"
-#include "Class/Product.h"
 
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QVariant>
+
+namespace qfaktury::database
+{
 
 ProductDao::ProductDao(QSqlDatabase& database) :
     database(database)
@@ -14,8 +16,10 @@ ProductDao::ProductDao(QSqlDatabase& database) :
 }
 
 
-void ProductDao::addProduct(Product &product) const
+void ProductDao::addProduct(core::Product &product) const
 {
+    using namespace core;
+
     QSqlQuery query(database);
     query.prepare("INSERT INTO product (ident, name, code, pkwiu, quality, description, net, gross, vat, metric) VALUES"
                   "(:ident, :name, :code, :pkwiu, :quality, :description, :net, :gross, :vat, :metric)");
@@ -34,8 +38,10 @@ void ProductDao::addProduct(Product &product) const
     DatabaseManager::debugQuery(query);
 }
 
-void ProductDao::updateProduct(const Product &product) const
+void ProductDao::updateProduct(const core::Product &product) const
 {
+    using namespace core;
+
     QSqlQuery query(database);
     query.prepare("UPDATE product SET ident = (:ident), name = (:name), code = (:code), pkwiu = (:pkwiu), quality = (:quality),"
                   "description = (:description), net = (:net), gross = (:gross), vat = (:vat), metric = (:metric) WHERE id = (:id)");
@@ -63,8 +69,10 @@ void ProductDao::removeProduct(int id) const
     DatabaseManager::debugQuery(query);
 }
 
-std::unique_ptr<std::vector<std::unique_ptr<Product> > > ProductDao::products() const
+std::unique_ptr<std::vector<std::unique_ptr<core::Product> > > ProductDao::products() const
 {
+    using namespace core;
+
     QSqlQuery query("SELECT * FROM product", database);
     query.exec();
     DatabaseManager::debugQuery(query);
@@ -87,3 +95,4 @@ std::unique_ptr<std::vector<std::unique_ptr<Product> > > ProductDao::products() 
     return list;
 }
 
+}

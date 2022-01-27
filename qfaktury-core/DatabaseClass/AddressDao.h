@@ -6,19 +6,25 @@
 #include <memory>
 #include <vector>
 
+#include "Class/Address.h"
+
 class QSqlDatabase;
-class Address;
+
+namespace qfaktury::database
+{
 
 class AddressDao final
 {
 public:
     explicit AddressDao(QSqlDatabase& new_database);
 
-    void addAddress(Address& address) const;
+    void addAddress(core::Address& address) const;
     void removeAddress(int id) const;
 
 private:
     QSqlDatabase& database;
 };
+
+}
 
 #endif // ADDRESSDAO_H

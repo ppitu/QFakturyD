@@ -4,6 +4,8 @@
 
 #include <QRegularExpression>
 
+namespace qfaktury::core {
+
 NIP::NIP()
 {
 
@@ -34,4 +36,6 @@ void NIP::validate()
     {
         throw NIPException();
     }
+}
+
 }

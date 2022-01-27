@@ -3,6 +3,8 @@
 
 #include <QString>
 
+namespace qfaktury::core {
+
 class Street final
 {
 public:
@@ -14,5 +16,7 @@ public:
 private:
     QString street;
 };
+
+}
 
 #endif // STREET_H

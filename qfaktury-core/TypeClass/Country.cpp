@@ -1,5 +1,7 @@
 #include "Country.h"
 
+namespace qfaktury::core {
+
 Country::Country() :
     country("")
 {
@@ -15,4 +17,6 @@ Country::Country(const QString& country) :
 const QString &Country::getCountry() const
 {
     return country;
+}
+
 }

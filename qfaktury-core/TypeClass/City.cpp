@@ -1,5 +1,7 @@
 #include "City.h"
 
+namespace qfaktury::core {
+
 City::City() :
     city("")
 {
@@ -15,4 +17,6 @@ City::City(const QString& city) :
 const QString &City::getCity() const
 {
     return city;
+}
+
 }

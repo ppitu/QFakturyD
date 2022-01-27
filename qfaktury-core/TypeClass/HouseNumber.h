@@ -3,6 +3,8 @@
 
 #include <QString>
 
+namespace qfaktury::core {
+
 class HouseNumber final
 {
 public:
@@ -15,4 +17,5 @@ private:
     QString house_number;
 };
 
+}
 #endif // HOUSENUMBER_H

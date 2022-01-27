@@ -3,6 +3,8 @@
 
 #include <QString>
 
+namespace qfaktury::core {
+
 class County final
 {
 public:
@@ -15,4 +17,5 @@ private:
     QString county;
 };
 
+}
 #endif // COUNTY_H

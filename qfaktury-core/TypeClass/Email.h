@@ -3,6 +3,8 @@
 
 #include <QString>
 
+namespace qfaktury::core {
+
 class Email final
 {
 public:
@@ -17,4 +19,5 @@ private:
     void validate();
 };
 
+}
 #endif // EMAIL_H

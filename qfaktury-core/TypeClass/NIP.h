@@ -3,6 +3,8 @@
 
 #include <QString>
 
+namespace qfaktury::core {
+
 class NIP final
 {
 public:
@@ -16,5 +18,7 @@ private:
 
     void validate();
 };
+
+}
 
 #endif // NIP_H

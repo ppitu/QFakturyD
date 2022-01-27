@@ -1,5 +1,7 @@
 #include "Contractor.h"
 
+namespace qfaktury::core {
+
 const QString &Contractor::getName() const
 {
     return name_;
@@ -41,5 +43,7 @@ Contractor::Contractor() :
     phone_(std::nullopt),
     email_(std::nullopt)
 {
+
+}
 
 }

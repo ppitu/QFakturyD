@@ -16,7 +16,7 @@ class ProductDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit ProductDialog(Product& product, QWidget *parent = nullptr);
+    explicit ProductDialog(qfaktury::core::Product& product, QWidget *parent = nullptr);
     ~ProductDialog();
 
 private slots:
@@ -27,7 +27,7 @@ private slots:
 
 private:
     Ui::ProductDialog *ui;
-    Product& mProduct;
+    qfaktury::core::Product& mProduct;
 };
 
 #endif //PRODUCTDIALOG_H

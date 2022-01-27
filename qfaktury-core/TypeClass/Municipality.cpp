@@ -1,5 +1,7 @@
 #include "Municipality.h"
 
+namespace qfaktury::core {
+
 Municipality::Municipality() :
     municipality("")
 {
@@ -15,4 +17,6 @@ Municipality::Municipality(const QString& municipality) :
 const QString &Municipality::getMunicipality() const
 {
     return municipality;
+}
+
 }

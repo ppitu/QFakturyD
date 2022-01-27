@@ -1,10 +1,12 @@
 #include "AddressDao.h"
 
-#include "Database/DatabaseManager.h"
-#include "Class/Address.h"
-
 #include <QSqlDatabase>
 #include <QSqlQuery>
+
+#include "Database/DatabaseManager.h"
+
+namespace qfaktury::database
+{
 
 AddressDao::AddressDao(QSqlDatabase& database_) :
     database(database_)
@@ -12,8 +14,10 @@ AddressDao::AddressDao(QSqlDatabase& database_) :
 
 }
 
-void AddressDao::addAddress(Address &address) const
+void AddressDao::addAddress(core::Address &address) const
 {
+    using namespace core;
+
     QSqlQuery query(database);
 
     query.prepare("INSERT INTO address (street, house_number, flat_number, city, municipality, post_code, county, country, province) VALUES"
@@ -41,4 +45,6 @@ void AddressDao::removeAddress(int id) const
    query.exec();
 
    DatabaseManager::debugQuery(query);
+}
+
 }

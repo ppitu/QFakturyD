@@ -1,5 +1,7 @@
 #include "ProductModel.h"
 
+using namespace qfaktury::core;
+using namespace qfaktury::database;
 
 ProductModel::ProductModel(QObject *parent) :
     QAbstractTableModel(parent),
@@ -123,3 +125,4 @@ bool ProductModel::isIndexValid(const QModelIndex &index) const
 {
     return index.isValid() && index.row() < rowCount();
 }
+

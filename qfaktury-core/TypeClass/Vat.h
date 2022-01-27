@@ -3,6 +3,8 @@
 
 #include <QString>
 
+namespace qfaktury::core {
+
 class Vat
 {
 public:
@@ -14,5 +16,7 @@ public:
 private:
     QString vat;
 };
+
+}
 
 #endif // VAT_H

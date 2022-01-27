@@ -1,5 +1,6 @@
 #include "Phone.h"
 
+namespace qfaktury::core {
 
 Phone::Phone(const QString &phone) :
     phone(phone)
@@ -16,4 +17,6 @@ void Phone::validate()
 {
     // TODO
     // Add validate
+}
+
 }

@@ -1,6 +1,8 @@
 #ifndef PRODUCTMODEL_H
 #define PRODUCTMODEL_H
 
+#include "qfaktury-core_global.h"
+
 #include <QAbstractTableModel>
 #include <QHash>
 #include <vector>
@@ -9,7 +11,6 @@
 #include "Class/Product.h"
 #include "Database/DatabaseManager.h"
 
-#include "qfaktury-core_global.h"
 
 class QFAKTURYCORE_EXPORT ProductModel : public QAbstractTableModel
 {
@@ -46,7 +47,7 @@ public:
 
     explicit ProductModel(QObject *parent = nullptr);
 
-    QModelIndex addProduct(const Product& product);
+    QModelIndex addProduct(const qfaktury::core::Product& product);
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     int columnCount(const QModelIndex &parent = QModelIndex()) const override;
@@ -59,8 +60,9 @@ private:
     bool isIndexValid(const QModelIndex& index) const;
 
 private:
-    DatabaseManager& db;
-    std::unique_ptr<std::vector<std::unique_ptr<Product>>> products;
+    qfaktury::database::DatabaseManager& db;
+    std::unique_ptr<std::vector<std::unique_ptr<qfaktury::core::Product>>> products;
 };
+
 
 #endif // PRODUCTMODEL_H

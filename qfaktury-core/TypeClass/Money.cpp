@@ -5,6 +5,8 @@
 
 #include <QRegularExpression>
 
+namespace qfaktury::core {
+
 Money::Money(const QString& new_money) noexcept(false)
 {
     validate(new_money);
@@ -75,4 +77,6 @@ int32_t Money::convertToInt(const QString &value)
     int32_t result = (list[0].toInt() * 100) + list[1].toInt();
 
     return result;
+}
+
 }
