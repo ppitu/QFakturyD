@@ -2,48 +2,26 @@
 
 namespace qfaktury::core {
 
-const QString &Contractor::getName() const
+Contractor::Contractor()
 {
-    return name_;
+
 }
 
-const NIP &Contractor::nip() const
+Contractor::Contractor(const Person& person, const Company& company) :
+    person(person),
+    company(company)
 {
-    return nip_;
+
 }
 
-const std::optional<QString>& Contractor::getBankAccount() const
+const Person& Contractor::getPerson() const
 {
-    return bankAccount_;
+    return person;
 }
 
-const std::optional<Phone>& Contractor::getPhone() const
+const Company& Contractor::getCompany() const
 {
-    return phone_;
-}
-
-const std::optional<Email>& Contractor::getEmail() const
-{
-    return email_;
-}
-
-Contractor::Contractor(const QString &name, const NIP &nip, const Address &address, std::optional<QString> bankAccount,
-                       std::optional<Phone> phone, std::optional<Email> email) :
-    name_(name),
-    nip_(nip),
-    address(address),
-    bankAccount_(std::move(bankAccount)),
-    phone_(std::move(phone)),
-    email_(std::move(email))
-{}
-
-Contractor::Contractor() :
-    name_(""),
-    bankAccount_(std::nullopt),
-    phone_(std::nullopt),
-    email_(std::nullopt)
-{
-
+    return company;
 }
 
 }

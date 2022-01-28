@@ -47,6 +47,8 @@ add_library(qfaktury-core SHARED
   TypeClass/Regon.h TypeClass/Regon.cpp
   Class/BankAccount.h Class/BankAccount.cpp
   TypeClass/BankAccountNumber.h TypeClass/BankAccountNumber.cpp
+  Class/Person.h Class/Person.cpp
+  TypeClass/Pesel.h TypeClass/Pesel.cpp
 )
 
 target_link_libraries(qfaktury-core PRIVATE Qt${QT_VERSION_MAJOR}::Core)
