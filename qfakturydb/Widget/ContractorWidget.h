@@ -15,6 +15,9 @@ public:
     explicit ContractorWidget(QWidget *parent = nullptr);
     ~ContractorWidget();
 
+private slots:
+    void createContractor();
+
 private:
     Ui::ContractorWidget *ui;
 };
