@@ -1,9 +1,11 @@
 #include "Money.h"
 
-#include "Exception/MoneyException.h"
-#include "Vat.h"
+#include <cmath>
 
 #include <QRegularExpression>
+
+#include "Exception/MoneyException.h"
+#include "Vat.h"
 
 namespace qfaktury::core {
 
@@ -43,8 +45,18 @@ QString Money::toString() const
         return "0.00";
     }
 
-    auto x = QString::number(money/100);
-    auto z = QString::number(money%100);
+    int32_t round = money/100;
+    int32_t residual = money%100;
+
+    QString x = "";
+    QString z = "";
+
+    if(money < 0 && round == 0)
+        x = "-" + QString::number(round);
+    else
+        x = QString::number(round);
+
+    z = QString::number(std::abs(residual));
 
     if(z.size() == 1)
         z += "0";
@@ -67,9 +79,14 @@ Money Money::operator+(const Money &obj) const
     return Money(this->money + obj.money);
 }
 
+Money Money::operator -(const Money &obj) const
+{
+    return Money(this->money - obj.money);
+}
+
 void Money::validate(const QString& value) noexcept(false)
 {
-    QRegularExpression re("^[0-9]+(\\.[0-9]{1,2})?$");
+    QRegularExpression re("^-?[0-9]+(\\.[0-9]{1,2})?$");
     auto match = re.match(value);
 
     if(!match.hasMatch())
@@ -80,7 +97,12 @@ int32_t Money::convertToInt(const QString &value)
 {
     auto list = value.split(".");
 
-    int32_t result = (list[0].toInt() * 100) + list[1].toInt();
+    int32_t result = (list[0].toInt() * 100);
+
+    if(result < 0)
+        result -= list[1].toInt();
+    else
+        result += list[1].toInt();
 
     return result;
 }

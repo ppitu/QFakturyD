@@ -23,6 +23,7 @@ public:
     Money operator *(const Vat &obj) const;
     Money operator *(const Money& obj) const;
     Money operator +(const Money& obj) const;
+    Money operator -(const Money& obj) const;
 private:
     int32_t money;
 
