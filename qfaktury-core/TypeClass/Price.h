@@ -1,6 +1,8 @@
 #ifndef PRICE_H
 #define PRICE_H
 
+#include "qfaktury-core_global.h"
+
 // TODO
 // Dodac obsluge dwoch liczba po przecinku, na razie moze ich byc wiecej
 
@@ -9,7 +11,7 @@
 
 namespace qfaktury::core {
 
-class Price final
+class QFAKTURYCORE_EXPORT Price final
 {
 public:
     Price(const Money& new_net, const Vat& new_vat);

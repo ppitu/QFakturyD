@@ -10,7 +10,7 @@
 
 namespace qfaktury::core {
 
-class Product final
+class QFAKTURYCORE_EXPORT Product final
 {
 
 public:

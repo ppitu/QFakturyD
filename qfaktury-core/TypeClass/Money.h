@@ -1,13 +1,15 @@
 #ifndef MONEY_H
 #define MONEY_H
 
+#include "qfaktury-core_global.h"
+
 #include <QString>
 
 namespace qfaktury::core {
 
 class Vat;
 
-class Money
+class QFAKTURYCORE_EXPORT Money
 {
 public:
     Money(const QString& money) noexcept(false);

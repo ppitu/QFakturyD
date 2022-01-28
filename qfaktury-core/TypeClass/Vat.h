@@ -1,11 +1,13 @@
 #ifndef VAT_H
 #define VAT_H
 
+#include "qfaktury-core_global.h"
+
 #include <QString>
 
 namespace qfaktury::core {
 
-class Vat
+class QFAKTURYCORE_EXPORT Vat
 {
 public:
     Vat() = default;
