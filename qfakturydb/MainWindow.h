@@ -9,6 +9,7 @@ QT_END_NAMESPACE
 
 class ProductModel;
 class ProductWidget;
+class ContractorWidget;
 
 class MainWindow final : public QMainWindow
 {
@@ -23,5 +24,6 @@ private:
 
     ProductModel* productModel;
     ProductWidget* productWidget;
+    ContractorWidget* contractorWidget;
 };
 #endif // MAINWINDOW_H

@@ -21,6 +21,8 @@ set(PROJECT_SOURCES
         MainWindow.ui
         Dialog/ProductDialog.h Dialog/ProductDialog.cpp Dialog/ProductDialog.ui
         Widget/ProductWidget.h Widget/ProductWidget.cpp Widget/ProductWidget.ui
+        Widget/ContractorWidget.h Widget/ContractorWidget.cpp Widget/ContractorWidget.ui
+        Dialog/ContractorDialog.h Dialog/ContractorDialog.cpp Dialog/ContractorDialog.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
