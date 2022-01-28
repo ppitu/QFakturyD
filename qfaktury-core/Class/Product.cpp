@@ -10,8 +10,8 @@ Product::Product() :
     description_(""),
     ident_(""),
     quality_(""),
-    metric_("")//,
-    //price_(0, 0)
+    metric_(""),
+    price_()
 {
 
 }

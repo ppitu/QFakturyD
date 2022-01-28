@@ -4,69 +4,75 @@ namespace qfaktury::core {
 
 const Street& Address::getStreet() const
 {
-    return street_;
+    return street;
 }
 
 const HouseNumber &Address::getHouseNumber() const
 {
-    return houseNumber_;
+    return house_number;
 }
 
 const std::optional<FlatNumber> &Address::getFlatNumber() const
 {
-    return flatNumber_;
+    return flat_number;
 }
 
 const City &Address::getCity() const
 {
-    return city_;
+    return city;
 }
 
 const Municipality &Address::getMunicipality() const
 {
-    return municipality_;
+    return municipality;
 }
 
 const PostCode &Address::getPostCode() const
 {
-    return postCode_;
+    return post_code;
 }
 
 const std::optional<Country> &Address::getCountry() const
 {
-    return country_;
+    return country;
 }
 
 const std::optional<County> &Address::getCounty() const
 {
-    return county_;
+    return county;
 }
 
 const std::optional<Province> &Address::getProvice() const
 {
 
-    return provice_;
+    return provice;
 }
 
-Address::Address(const Street &street, const HouseNumber &houseNumber, const std::optional<FlatNumber> flatNumber,
-                 const City &city, const Municipality &municipality, const PostCode &postCode,
-                 const std::optional<Country> country, const std::optional<County> county, const std::optional<Province> provice) :
-    street_(street),
-    houseNumber_(houseNumber),
-    flatNumber_(flatNumber),
-    city_(city),
-    municipality_(municipality),
-    postCode_(postCode),
-    country_(country),
-    county_(county),
-    provice_(provice)
+bool Address::getDelivery()
+{
+    return delivery;
+}
+
+Address::Address(const Street& _street, const HouseNumber& _houseNumber, const std::optional<FlatNumber>& _flatNumber,
+                 const City& _city, const Municipality& _municipality, const PostCode& _postCode,
+                 const std::optional<Country>& _country, const std::optional<County>& _county, const std::optional<Province>& _provice, bool _delivery) :
+    street(_street),
+    house_number(_houseNumber),
+    flat_number(_flatNumber),
+    city(_city),
+    municipality(_municipality),
+    post_code(_postCode),
+    country(_country),
+    county(_county),
+    provice(_provice),
+    delivery(_delivery)
 {}
 
 Address::Address() :
-    flatNumber_(std::nullopt),
-    country_(std::nullopt),
-    county_(std::nullopt),
-    provice_(std::nullopt)
+    flat_number(std::nullopt),
+    country(std::nullopt),
+    county(std::nullopt),
+    provice(std::nullopt)
 {
 
 }

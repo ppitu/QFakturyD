@@ -53,7 +53,7 @@ void DatabaseManager::updateDatabase()
 
         query.exec("CREATE TABLE address (id INTEGER PRIMARY KEY AUTOINCREMENT, street VARCHAR(20), house_number VARCHAR(10), "
                    "flat_number VARCHAR(10), city VARCHAR(30), municipality VARCHAR(30), post_code VARCHAR(10), county VARCHAR(30),"
-                   "country VARCHAR(30), province VARCHAR(30))");
+                   "country VARCHAR(30), province VARCHAR(30), delivery INTEGER)");
 
         DatabaseManager::debugQuery(query);
     }

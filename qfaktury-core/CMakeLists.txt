@@ -43,6 +43,10 @@ add_library(qfaktury-core SHARED
   TypeClass/Money.h TypeClass/Money.cpp
   Exception/MoneyException.h Exception/MoneyException.cpp
   TypeClass/Vat.h TypeClass/Vat.cpp
+  Class/Company.h Class/Company.cpp
+  TypeClass/Regon.h TypeClass/Regon.cpp
+  Class/BankAccount.h Class/BankAccount.cpp
+  TypeClass/BankAccountNumber.h TypeClass/BankAccountNumber.cpp
 )
 
 target_link_libraries(qfaktury-core PRIVATE Qt${QT_VERSION_MAJOR}::Core)

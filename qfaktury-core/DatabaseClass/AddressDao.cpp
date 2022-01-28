@@ -31,6 +31,7 @@ void AddressDao::addAddress(core::Address &address) const
     query.bindValue(":county", address.getCounty().has_value() ? address.getCounty()->getCounty() : "");
     query.bindValue(":country", address.getCountry().has_value() ? address.getCountry()->getCountry() : "");
     query.bindValue(":province", address.getProvice().has_value() ? address.getProvice()->getProvince() : "");
+    query.bindValue(":delivery", address.getDelivery());
 
     query.exec();
 

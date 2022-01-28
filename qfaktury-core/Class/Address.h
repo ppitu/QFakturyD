@@ -24,9 +24,9 @@ class Address final
 {
 public:
     Address();
-    Address(const Street &street, const HouseNumber &houseNumber, const std::optional<FlatNumber> flatNumber,
+    Address(const Street &street, const HouseNumber &houseNumber, const std::optional<FlatNumber>& flatNumber,
             const City &city, const Municipality &municipality, const PostCode &postCode,
-            const std::optional<Country> country, const std::optional<County> county, const std::optional<Province> provice);
+            const std::optional<Country>& country, const std::optional<County>& county, const std::optional<Province>& provice, bool delivery);
 
     const Street& getStreet() const;
     const HouseNumber &getHouseNumber() const;
@@ -37,17 +37,19 @@ public:
     const std::optional<Country> &getCountry() const;
     const std::optional<County> &getCounty() const;
     const std::optional<Province> &getProvice() const;
+    bool getDelivery();
 
 private:
-    Street street_;
-    HouseNumber houseNumber_;
-    std::optional<FlatNumber> flatNumber_;
-    City city_;
-    Municipality municipality_;
-    PostCode postCode_;
-    std::optional<Country> country_;
-    std::optional<County> county_;
-    std::optional<Province> provice_;
+    Street street;
+    HouseNumber house_number;
+    std::optional<FlatNumber> flat_number;
+    City city;
+    Municipality municipality;
+    PostCode post_code;
+    std::optional<Country> country;
+    std::optional<County> county;
+    std::optional<Province> provice;
+    bool delivery;
 };
 
 }
