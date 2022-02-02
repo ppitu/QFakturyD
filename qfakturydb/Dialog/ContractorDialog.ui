@@ -16,82 +16,8 @@
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="9" column="0">
-      <layout class="QHBoxLayout" name="horizontalLayout_3">
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout_9">
-         <item>
-          <widget class="QLabel" name="lblStreet">
-           <property name="text">
-            <string>Ulica</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="elStreet"/>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout_8">
-         <item>
-          <widget class="QLabel" name="lblHouseNumber">
-           <property name="text">
-            <string>Numer domu</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="elHouseNumber"/>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout_7">
-         <item>
-          <widget class="QLabel" name="lblFlatNumber">
-           <property name="text">
-            <string>Numer mieszkania</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="elFlatNumber"/>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </item>
      <item row="4" column="0">
-      <layout class="QVBoxLayout" name="verticalLayout_4">
-       <item>
-        <widget class="QLabel" name="lblNip">
-         <property name="text">
-          <string>NIP</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="elNip"/>
-       </item>
-      </layout>
-     </item>
-     <item row="8" column="0">
-      <layout class="QVBoxLayout" name="verticalLayout_6">
-       <item>
-        <widget class="QLabel" name="lblComapny">
-         <property name="text">
-          <string>Firma</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="elComapny"/>
-       </item>
-      </layout>
-     </item>
-     <item row="7" column="0">
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <layout class="QHBoxLayout" name="horizontalLayout_5">
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_3">
          <item>
@@ -131,46 +57,14 @@
      <item row="1" column="0">
       <layout class="QVBoxLayout" name="verticalLayout_5">
        <item>
-        <widget class="QLabel" name="lblIdent">
+        <widget class="QLabel" name="lblNip">
          <property name="text">
-          <string>Identyfikator</string>
+          <string>NIP</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="elIdent"/>
-       </item>
-      </layout>
-     </item>
-     <item row="10" column="0">
-      <layout class="QHBoxLayout" name="horizontalLayout_4">
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout_11">
-         <item>
-          <widget class="QLabel" name="lblPostCode">
-           <property name="text">
-            <string>Kod pocztowy</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="elPostCode"/>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout_10">
-         <item>
-          <widget class="QLabel" name="lblCity">
-           <property name="text">
-            <string>Miejscowość</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="elCity"/>
-         </item>
-        </layout>
+        <widget class="QLineEdit" name="elNip"/>
        </item>
       </layout>
      </item>
@@ -258,21 +152,106 @@
        </item>
       </layout>
      </item>
+     <item row="7" column="0">
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <item>
+        <widget class="QLabel" name="lblComapny">
+         <property name="text">
+          <string>Firma</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="elComapny"/>
+       </item>
+      </layout>
+     </item>
+     <item row="8" column="0">
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_9">
+         <item>
+          <widget class="QLabel" name="lblStreet">
+           <property name="text">
+            <string>Ulica</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="elStreet"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_8">
+         <item>
+          <widget class="QLabel" name="lblHouseNumber">
+           <property name="text">
+            <string>Numer domu</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="elHouseNumber"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_7">
+         <item>
+          <widget class="QLabel" name="lblFlatNumber">
+           <property name="text">
+            <string>Numer mieszkania</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="elFlatNumber"/>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item row="9" column="0">
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_11">
+         <item>
+          <widget class="QLabel" name="lblPostCode">
+           <property name="text">
+            <string>Kod pocztowy</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="elPostCode"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_10">
+         <item>
+          <widget class="QLabel" name="lblCity">
+           <property name="text">
+            <string>Miejscowość</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="elCity"/>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
     </layout>
    </item>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QPushButton" name="pushButton_2">
-       <property name="text">
-        <string>PushButton</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton">
-       <property name="text">
-        <string>PushButton</string>
+      <widget class="QDialogButtonBox" name="buttonBox">
+       <property name="standardButtons">
+        <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
        </property>
       </widget>
      </item>
