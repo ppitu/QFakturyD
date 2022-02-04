@@ -126,8 +126,8 @@ void MoneyTest::test_addition()
         QCOMPARE((money + money1).toString(), "0.00");
     }
     {
-        Money money("-50.00", 4);
-        Money money1("-50.00", 4);
+        Money money("-50.00", 2);
+        Money money1("-50.00", 2);
 
         QCOMPARE((money + money1).toString(), "-100.00");
     }
