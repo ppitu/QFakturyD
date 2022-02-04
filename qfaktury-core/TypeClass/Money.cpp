@@ -9,27 +9,39 @@
 
 namespace qfaktury::core {
 
-Money::Money(const QString& new_money) noexcept(false)
+Money::Money(const QString& new_money, int precision) noexcept(false)
 {
+    if(precision > 4 || precision < 0)
+        throw MoneyException();
+
     validate(new_money);
 
-    money = convertToInt(new_money);
+    money = convertToInt(new_money, precision);
 }
 
-Money::Money(int32_t new_money) :
-    money(new_money)
+Money::Money(int32_t new_money, int precision) noexcept(false)
 {
+    if(precision > 4 || precision < 0)
+        throw MoneyException();
 
+    money = new_money * std::pow(10, precision);
 }
 
-Money::Money(float new_money)
+Money::Money(float new_money, int precision) noexcept(false)
 {
-    money = static_cast<int>(new_money * 100);
+    if(precision > 4 || precision < 0)
+        throw MoneyException();
+
+    money = static_cast<int>(new_money * 10000);
+    qDebug() << money;
 }
 
-Money::Money(double new_money)
+Money::Money(double new_money, int precision) noexcept(false)
 {
-    money = static_cast<int>(new_money * 100);
+    if(precision > 4 || precision < 0)
+        throw MoneyException();
+
+    money = static_cast<int>(new_money * 10000);
 }
 
 Money::Money() :
@@ -45,16 +57,18 @@ QString Money::toString() const
         return "0.00";
     }
 
-    int32_t round = money/100;
-    int32_t residual = money%100;
+    int32_t round_ = money/10000;
+    int32_t residual = money%10000;
+
+    residual = round(residual);
 
     QString x = "";
     QString z = "";
 
-    if(money < 0 && round == 0)
-        x = "-" + QString::number(round);
+    if(money < 0 && round_ == 0)
+        x = "-" + QString::number(round_);
     else
-        x = QString::number(round);
+        x = QString::number(round_);
 
     z = QString::number(std::abs(residual));
 
@@ -71,7 +85,7 @@ Money Money::operator*(const Vat &obj) const
 
 Money Money::operator*(const Money& obj) const
 {
-    return Money(this->money + obj.money);
+    return Money(this->money * obj.money);
 }
 
 Money Money::operator+(const Money &obj) const
@@ -84,27 +98,42 @@ Money Money::operator -(const Money &obj) const
     return Money(this->money - obj.money);
 }
 
+Money::Money(int32_t _money) :
+    money(_money)
+{
+
+}
+
 void Money::validate(const QString& value) noexcept(false)
 {
-    QRegularExpression re("^-?[0-9]+(\\.[0-9]{1,2})?$");
+    QRegularExpression re("^-?[0-9]+(\\.[0-9]{1,4})?$");
     auto match = re.match(value);
 
     if(!match.hasMatch())
         throw MoneyException();
 }
 
-int32_t Money::convertToInt(const QString &value)
+int32_t Money::convertToInt(const QString &value, int precision)
 {
     auto list = value.split(".");
 
-    int32_t result = (list[0].toInt() * 100);
+    int32_t result = (list[0].toInt() * std::pow(10, 4));
 
     if(result < 0)
-        result -= list[1].toInt();
+        result -= (list[1].toInt() * std::pow(10, (4 - precision)));
     else
-        result += list[1].toInt();
-
+        result += (list[1].toInt() * std::pow(10, (4 - precision)));
     return result;
+}
+
+int32_t Money::round(int32_t number) const
+{
+    int32_t x = number%100;
+
+    if(x >= 50)
+        return static_cast<int32_t>((number/100)) + 1;
+    else
+        return static_cast<int32_t>(number/100);
 }
 
 }

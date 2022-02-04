@@ -38,7 +38,7 @@ void ProductDialog::accept()
 {
     using namespace qfaktury::core;
 
-    Price price(ui->dsNet->value(), ui->cbVat->currentText());
+    Price price({ui->dsNet->value(), 2}, ui->cbVat->currentText());
     Product product(mProduct.getId(), mProduct.getLastId(), ui->elIdent->text(),
                     ui->elName->text(), ui->elCode->text(), ui->elPKWIU->text(),
                     ui->elDescription->text(), ui->elQuality->text(), ui->elMetric->text(),
@@ -58,6 +58,6 @@ void ProductDialog::calculateGross()
 {
     using namespace qfaktury::core;
 
-    Price price(ui->dsNet->value(), ui->cbVat->currentText());
+    Price price({ui->dsNet->value(), 2}, ui->cbVat->currentText());
     ui->dsGross->setValue(price.getGross().toDouble());
 }

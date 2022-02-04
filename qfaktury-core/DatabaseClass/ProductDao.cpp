@@ -81,7 +81,7 @@ std::unique_ptr<std::vector<std::unique_ptr<core::Product> > > ProductDao::produ
 
     while(query.next())
     {
-        Price price(query.value("net").toInt(), query.value("vat").toString());
+        Price price({query.value("net").toInt(), 2}, query.value("vat").toString());
 
         std::unique_ptr<Product> product(new Product(query.value("id").toInt(), -1, query.value("ident").toString(),
                                                      query.value("name").toString(), query.value("code").toString(),
