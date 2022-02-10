@@ -80,7 +80,7 @@ QString Money::toString() const
 
 Money Money::operator*(const Vat &obj) const
 {
-    return Money((float)(money/100) * (float)(obj.getVat().toInt()/100.0));
+    return Money((float)(money/10000) * (float)(obj.getVat().toInt()/100.0), 2);
 }
 
 Money Money::operator*(const Money& obj) const

@@ -17,7 +17,8 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(qfaktury-test main.cpp
-    tst_MoneyType.h tst_MoneyType.cpp)
+    tst_MoneyType.h tst_MoneyType.cpp
+    tst_VatTest.h tst_VatTest.cpp)
 
 include_directories("../qfaktury-core")
 

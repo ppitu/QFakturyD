@@ -1,6 +1,7 @@
 #include <QTest>
 
 #include "tst_MoneyType.h"
+#include "tst_VatTest.h"
 
 int main(int argc, char** argv)
 {
@@ -12,6 +13,7 @@ int main(int argc, char** argv)
     };
 
     ASSERT_TEST(new MoneyTest());
+    ASSERT_TEST(new VatTest());
 
     return status;
 }
