@@ -15,12 +15,14 @@ class Contractor final
 {
 public:
     Contractor();
-    Contractor(const Person& person, const Company& company);
+    Contractor(int id, const Person& person, const Company& company);
 
+    const int getId() const;
     const Person& getPerson() const;
     const Company& getCompany() const;
 
 private:
+    int id;
     Person person;
     Company company;
 

@@ -24,10 +24,11 @@ class Address final
 {
 public:
     Address();
-    Address(const Street &street, const HouseNumber &houseNumber, const std::optional<FlatNumber>& flatNumber,
+    Address(int id, const Street &street, const HouseNumber &houseNumber, const std::optional<FlatNumber>& flatNumber,
             const City &city, const Municipality &municipality, const PostCode &postCode,
             const std::optional<Country>& country, const std::optional<County>& county, const std::optional<Province>& provice, bool delivery);
 
+    const int getId() const;
     const Street& getStreet() const;
     const HouseNumber &getHouseNumber() const;
     const std::optional<FlatNumber> &getFlatNumber() const;
@@ -40,6 +41,7 @@ public:
     bool getDelivery();
 
 private:
+    int id;
     Street street;
     HouseNumber house_number;
     std::optional<FlatNumber> flat_number;

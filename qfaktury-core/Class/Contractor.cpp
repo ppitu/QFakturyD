@@ -7,7 +7,13 @@ Contractor::Contractor()
 
 }
 
-Contractor::Contractor(const Person& person, const Company& company) :
+const int Contractor::getId() const
+{
+    return id;
+}
+
+Contractor::Contractor(int id, const Person& person, const Company& company) :
+    id(id),
     person(person),
     company(company)
 {

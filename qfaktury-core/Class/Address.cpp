@@ -53,9 +53,10 @@ bool Address::getDelivery()
     return delivery;
 }
 
-Address::Address(const Street& _street, const HouseNumber& _houseNumber, const std::optional<FlatNumber>& _flatNumber,
+Address::Address(int _id, const Street& _street, const HouseNumber& _houseNumber, const std::optional<FlatNumber>& _flatNumber,
                  const City& _city, const Municipality& _municipality, const PostCode& _postCode,
                  const std::optional<Country>& _country, const std::optional<County>& _county, const std::optional<Province>& _provice, bool _delivery) :
+    id(_id),
     street(_street),
     house_number(_houseNumber),
     flat_number(_flatNumber),
@@ -67,6 +68,11 @@ Address::Address(const Street& _street, const HouseNumber& _houseNumber, const s
     provice(_provice),
     delivery(_delivery)
 {}
+
+const int Address::getId() const
+{
+    return id;
+}
 
 Address::Address() :
     flat_number(std::nullopt),

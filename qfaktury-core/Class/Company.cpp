@@ -8,8 +8,14 @@ Company::Company()
 
 }
 
-Company::Company(const QString& _name, const std::optional<NIP>& _nip, const std::optional<Regon>& _regon, const std::optional<Phone>& _phone,
+const int Company::getId() const
+{
+    return id;
+}
+
+Company::Company(int _id, const QString& _name, const std::optional<NIP>& _nip, const std::optional<Regon>& _regon, const std::optional<Phone>& _phone,
                  const std::optional<Email>& _email, const std::optional<Address>& _address, const std::optional<BankAccount>& _bank_account) :
+    id(_id),
     name(_name),
     nip(_nip),
     regon(_regon),

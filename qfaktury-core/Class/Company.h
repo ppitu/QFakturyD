@@ -17,9 +17,10 @@ class Company final
 {
 public:
     Company();
-    Company(const QString& _name, const std::optional<NIP>& _nip, const std::optional<Regon>& _regon, const std::optional<Phone>& _phone,
+    Company(int id, const QString& _name, const std::optional<NIP>& _nip, const std::optional<Regon>& _regon, const std::optional<Phone>& _phone,
             const std::optional<Email>& _email, const std::optional<Address>& _address, const std::optional<BankAccount>& _bank_account);
 
+    const int getId() const;
     const QString& getName() const;
     const std::optional<NIP>& getNIP() const;
     const std::optional<Regon>& getRegon() const;
@@ -29,6 +30,7 @@ public:
     const std::optional<BankAccount>& getBankAccount() const;
 
 private:
+    int id;
     QString name{};
     std::optional<NIP> nip{};
     std::optional<Regon> regon{};
