@@ -13,6 +13,7 @@ class QFAKTURYCORE_EXPORT Money
 {
 public:
     Money(const QString& money, int precistion) noexcept(false);
+    Money(const QString& money) noexcept(false);
     //Important!!!
     //Two last digit are decimal
     Money(int32_t money, int precistion) noexcept(false);

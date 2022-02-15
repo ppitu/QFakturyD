@@ -1,4 +1,5 @@
 #include "tst_MoneyType.h"
+#include "TypeClass/Money.h"
 
 MoneyTest::MoneyTest()
 {
@@ -48,6 +49,21 @@ void MoneyTest::test_constructor_from_string()
         Money money("100.5000", 4);
 
         QCOMPARE(money.toString(), "100.50");
+    }
+    {
+        Money money("100.50");
+
+        QCOMPARE( money.toString(), "100.50");
+    }
+    {
+      Money money("999.99", 2);
+
+      QCOMPARE( money.toString(), "999.99");
+    }
+    {
+      Money money("999.99");
+
+      QCOMPARE( money.toString(), "999.99");
     }
 }
 

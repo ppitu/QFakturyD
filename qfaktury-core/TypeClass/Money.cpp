@@ -9,6 +9,11 @@
 
 namespace qfaktury::core {
 
+Money::Money(const QString& money) noexcept(false) : Money(money, 2)
+{
+  ;
+}
+
 Money::Money(const QString& new_money, int precision) noexcept(false)
 {
     if(precision > 4 || precision < 0)
