@@ -8,7 +8,7 @@ Company::Company()
 
 }
 
-const int Company::getId() const
+ int Company::getId() const
 {
     return id;
 }

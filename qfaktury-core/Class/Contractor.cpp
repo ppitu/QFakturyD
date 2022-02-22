@@ -7,7 +7,7 @@ Contractor::Contractor()
 
 }
 
-const int Contractor::getId() const
+ int Contractor::getId() const
 {
     return id;
 }

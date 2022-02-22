@@ -14,7 +14,7 @@ public:
     Person();
     Person(int id, const QString& _first_name, const QString& _last_name, const std::optional<QString>& _pesel);
 
-    const int getId() const;
+    int getId() const;
     const QString& getFirstName() const;
     const QString& getLastName() const;
     const std::optional<Pesel>& getPesel() const;

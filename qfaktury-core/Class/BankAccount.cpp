@@ -8,7 +8,7 @@ BankAccount::BankAccount()
 
 }
 
-const int BankAccount::getInt() const
+ int BankAccount::getInt() const
 {
     return id;
 }

@@ -69,7 +69,7 @@ Address::Address(int _id, const Street& _street, const HouseNumber& _houseNumber
     delivery(_delivery)
 {}
 
-const int Address::getId() const
+int Address::getId() const
 {
     return id;
 }

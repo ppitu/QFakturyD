@@ -4,11 +4,11 @@ namespace qfaktury::core {
 
 Product::Product() :
     lastId_(0),
+    ident_(""),
     name_(""),
     code_(""),
     pkwiu_(""),
     description_(""),
-    ident_(""),
     quality_(""),
     metric_(""),
     price_()

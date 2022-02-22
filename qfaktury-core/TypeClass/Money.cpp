@@ -85,7 +85,7 @@ QString Money::toString() const
 
 Money Money::operator*(const Vat &obj) const
 {
-    return Money((float)(money/10000) * (float)(obj.getVat().toInt()/100.0), 2);
+  return Money( ( (money/10000.0) * ( obj.getVat().toInt()/100.0 ) ) , 2);
 }
 
 Money Money::operator*(const Money& obj) const
@@ -103,8 +103,8 @@ Money Money::operator -(const Money &obj) const
     return Money(this->money - obj.money);
 }
 
-Money::Money(int32_t _money) :
-    money(_money)
+Money::Money(int32_t money) :
+    money(money)
 {
 
 }

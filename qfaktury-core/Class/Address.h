@@ -28,7 +28,7 @@ public:
             const City &city, const Municipality &municipality, const PostCode &postCode,
             const std::optional<Country>& country, const std::optional<County>& county, const std::optional<Province>& provice, bool delivery);
 
-    const int getId() const;
+    int getId() const;
     const Street& getStreet() const;
     const HouseNumber &getHouseNumber() const;
     const std::optional<FlatNumber> &getFlatNumber() const;

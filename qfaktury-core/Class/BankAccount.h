@@ -14,7 +14,7 @@ public:
     BankAccount();
     BankAccount(int _id, const QString& _bank_name, const BankAccountNumber& _number);
 
-    const int getInt() const;
+     int getInt() const;
     const QString& getBankName() const;
     const BankAccountNumber& getNumber() const;
 

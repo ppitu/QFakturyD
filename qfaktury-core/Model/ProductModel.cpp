@@ -31,39 +31,42 @@ int ProductModel::rowCount(const QModelIndex &parent) const
 
 int ProductModel::columnCount(const QModelIndex &parent) const
 {
+    (void) parent; // FIXME: delete this projection
     return 11;
 }
 
 QVariant ProductModel::data(const QModelIndex &index, int role) const
 {
+  QVariant  RetEmpty;
+
     if(!isIndexValid(index))
     {
-        return {};
+        return RetEmpty;
     }
 
     Product& product = *products->at(index.row());
 
     switch (role) {
-    case Roles::ID_ROLE:
-        return QVariant::fromValue(product);
-    case Qt::DisplayRole:
+      case Roles::ID_ROLE:
+          return QVariant::fromValue(product);
+      case Qt::DisplayRole: {
         switch (index.column()) {
-        case ColumnName::ID: return product.getId();
-        case ColumnName::IDENT: return product.getIdent();
-        case ColumnName::NAME: return product.getName();
-        case ColumnName::CODE: return product.getCode();
-        case ColumnName::PKWIU: return product.getPkwiu();
-        case ColumnName::QUALITY: return product.getQuality();
-        case ColumnName::DESCRIPTION: return product.getDescription();
-        case ColumnName::NET: return product.getPrice().getNet();
-        case ColumnName::GROSS: return product.getPrice().getGross();
-        //case ColumnName::VAT: return product.getPrice().getVat();
-        case ColumnName::METRIC: return product.getMetric();
+            case ColumnName::ID: return product.getId();
+            case ColumnName::IDENT: return product.getIdent();
+            case ColumnName::NAME: return product.getName();
+            case ColumnName::CODE: return product.getCode();
+            case ColumnName::PKWIU: return product.getPkwiu();
+            case ColumnName::QUALITY: return product.getQuality();
+            case ColumnName::DESCRIPTION: return product.getDescription();
+            case ColumnName::NET: return product.getPrice().getNet();
+            case ColumnName::GROSS: return product.getPrice().getGross();
+            //case ColumnName::VAT: return product.getPrice().getVat();
+            case ColumnName::METRIC: return product.getMetric();
         }
-    default:
-        return {};
+      }
     }
 
+  return RetEmpty;
 }
 
 bool ProductModel::setData(const QModelIndex &index, const QVariant &value, int role)
